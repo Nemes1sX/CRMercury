@@ -7,5 +7,5 @@ public class Employee
     public string firstName { get; set; }
     public int companyId { get; set; }
 
-    public IList<Task> tasks { get; set; }
+    //public IList<Task> tasks { get; set; }
 }
