@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using EFGetStarted.AspNetCore.NewDb.Models;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace megaprojektas
 {
@@ -27,6 +30,9 @@ namespace megaprojektas
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+               var connection = "Data Source=employee.db";
+            services.AddDbContext<EmployeeContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("DriverDatabase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
