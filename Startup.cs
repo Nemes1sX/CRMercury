@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using EFGetStarted.AspNetCore.NewDb.Models;
+using Microsoft.EntityFrameworkCore;
+using CRMercury.Web;
 
 namespace megaprojektas
 {
@@ -27,6 +30,11 @@ namespace megaprojektas
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            //DbCreator.Create();
+                 //var connection = "Data Source=CRMercury.db";
+                         services.AddDbContext<CRMercuryContext>(options =>    
+          options.UseSqlServer(Configuration.GetConnectionString("CRMercury")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
