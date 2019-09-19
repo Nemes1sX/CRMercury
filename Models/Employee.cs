@@ -11,11 +11,10 @@ namespace EFGetStarted.AspNetCore.NewDb.Models{
          public DbSet<Employee> Employees { get; set; }
      }
 
-   
 
-    public class Employee
-{
-     public int id { get; set; }
+public class Employee
+    {
+    public int id { get; set; }
     
     public string fullname {get; set;}
 
@@ -23,8 +22,8 @@ namespace EFGetStarted.AspNetCore.NewDb.Models{
 
     public string password {get; set; } 
 
-    
+    }
+
 }
 
 
-}
