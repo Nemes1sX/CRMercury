@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CRMercury.Models;
+using CRMercury.Data.Models;
 
 namespace megaprojektas.Controllers
 {

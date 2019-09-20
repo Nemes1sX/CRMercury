@@ -1,4 +1,4 @@
-namespace CRMercury.Models
+namespace CRMercury.Data.Models
 {
     public class TaskTemplate
     {
