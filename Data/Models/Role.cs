@@ -6,6 +6,8 @@ namespace CRMercury.Data.Models
         public int RoleId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+
+        public ICollection<Permission> Permissions { get; set; }
         public ICollection<RolePermission> RolePermissions { get; set; }
     }
 }

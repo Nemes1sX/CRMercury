@@ -23,8 +23,7 @@ namespace megaprojektas.Controllers
             Employee employee = new Employee
             {
                 EmployeeId = id,
-                FirstName = "Onute",
-                LastName = "Vienas",
+                FullName = "Onute Tiktik",
             };
             return Ok(employee);
         }

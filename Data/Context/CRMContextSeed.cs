@@ -1,77 +1,72 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Diagnostics;
-//using System.Linq;
-//using System.Threading.Tasks;
-//using CRMercury.Data.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using CRMercury.Data.Models;
 
-//namespace CRMercury.Data.Context
-//{
-//    public class CRMContextSeed
-//    {
-//        public static void Initialize(CRMContext context)
-//        {
-//            context.Database.EnsureCreated();
+namespace CRMercury.Data.Context
+{
+    public class CRMContextSeed
+    {
+        public static void Initialize(CRMContext context)
+        {
+            context.Database.EnsureCreated();
 
-//            if (DbEmpty(context))
-//            {
-//                SeedDb(context);
-//            }
-//        }
-//        private static bool DbEmpty(CRMContext context)
-//        {
-//            return !context.Roles.Any()
-//                && !context.Permissions.Any()
-//                && !context.RolePermissions.Any();
-//        }
-//        private static void SeedDb(CRMContext context)
-//        {
-//            AddCompanies(context);
-//            AddDailyTasks(context);
-//            AddEmployees(context);
-//            AddEmployeeDailyTasks(context);
-//        }
-//        private static void AddCompanies(CRMContext context)
-//        {
-//            var companies = new Company[]{
-//                new Company{ Name="MicroSoft"},
-//                new Company{ Name="IBM"}};
+            if (DbEmpty(context))
+            {
+                SeedDb(context);
+            }
+        }
+        private static bool DbEmpty(CRMContext context)
+        {
+            return !context.Roles.Any()
+                && !context.Permissions.Any()
+                && !context.RolePermissions.Any();
+        }
+        private static void SeedDb(CRMContext context)
+        {
+            AddRoles(context);
+            AddPermissions(context);
+            AddRolePermissions(context);
+        }
+        private static void AddRoles(CRMContext context)
+        {
+            var roles = new Role[]{
+                new Role{ Title = "Programmer net core", Description = "Programming web applications with dotnet core c#"},
+                new Role{ Title = "Manager", Description = "Planning, directing and overseeing the operations."},
+            };
 
-//            context.Companies.AddRange(companies);
-//            context.SaveChanges();
-//        }
-//        private static void AddDailyTasks(CRMContext context)
-//        {
-//            var dailyTasks = new DailyTask[]{
-//                new DailyTask{ Title="Programming", Description="Programming all day and night"},
-//                new DailyTask{ Title="Testing", Description="Testing and debugging software"},
-//                new DailyTask{ Title="DB managing", Description="Managing sql data bases"}};
+            context.Roles.AddRange(roles);
+            context.SaveChanges();
+        }
+        private static void AddPermissions(CRMContext context)
+        {
+            var permissions = new Permission[]{
+                new Permission{ SelfActionOnly = true, ActionCreate = false
+                    , ActionRead = true , ActionDelete = false, ActionUpdate = false
+                    , ActionRole = context.Roles.FirstOrDefault(s => s.RoleId == 1) },
+                new Permission{ SelfActionOnly = false, ActionCreate = true
+                    , ActionRead = true , ActionDelete = true, ActionUpdate = true
+                    , ActionRole = context.Roles.FirstOrDefault(s => s.RoleId == 2) },
+                new Permission{ SelfActionOnly = false, ActionCreate = true
+                    , ActionRead = true , ActionDelete = true, ActionUpdate = true
+                    , ActionRole = context.Roles.FirstOrDefault(s => s.RoleId == 1) },
+            };
 
-//            context.DailyTasks.AddRange(dailyTasks);
-//            context.SaveChanges();
-//        }
-//        private static void AddEmployees(CRMContext context)
-//        {
-//            var employees = new Employee[]{
-//                new Employee{FirstName="Jonukas",LastName="Tuktuk",Company = context.Companies.FirstOrDefault(s => s.CompanyId == 1)},
-//                new Employee{FirstName="Onute",LastName="Tiktik",Company = context.Companies.FirstOrDefault(s => s.CompanyId == 1)},
-//                new Employee{FirstName="Petriukas",LastName="Lalala"},
-//                new Employee{FirstName="Aldona",LastName="Tatata",Company = context.Companies.FirstOrDefault(s => s.CompanyId == 2)}};
+            context.Permissions.AddRange(permissions);
+            context.SaveChanges();
+        }
+        private static void AddRolePermissions(CRMContext context)
+        {
+            var rolePermissions = new RolePermission[]{
+                new RolePermission{ RoleId = 1, PermissionId = 1 },
+                new RolePermission{ RoleId = 2, PermissionId = 2 },
+                new RolePermission{ RoleId = 2, PermissionId = 3 },
+            };
 
-//            context.Employees.AddRange(employees);
-//            context.SaveChanges();
-//        }
-//        private static void AddEmployeeDailyTasks(CRMContext context)
-//        {
-//            var employeeTasks = new EmployeeDailyTask[]{
-//                new EmployeeDailyTask{ EmployeeId=1, DailyTaskId=1 },
-//                new EmployeeDailyTask{ EmployeeId=1, DailyTaskId=2 },
-//                new EmployeeDailyTask{ EmployeeId=2, DailyTaskId=2 },
-//                new EmployeeDailyTask{ EmployeeId=4, DailyTaskId=2 },
-//                new EmployeeDailyTask{ EmployeeId=4, DailyTaskId=3 }};
-
-//            context.EmployeeDailyTasks.AddRange(employeeTasks);
-//            context.SaveChanges();
-//        }
-//    }
-//}
+            context.RolePermissions.AddRange(rolePermissions);
+            context.SaveChanges();
+        }
+    }
+}
