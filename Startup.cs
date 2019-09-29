@@ -31,9 +31,7 @@ namespace megaprojektas
             (_) => "The field is required.");
     })
     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-/*services.AddSingleton
-    <IValidationAttributeAdapterProvider, 
-     CustomValidationAttributeAdapterProvider>();*/
+
 
       services.AddDbContext<CRMercuryContext>(options =>    
           options.UseSqlServer(Configuration.GetConnectionString("CRMercury")));

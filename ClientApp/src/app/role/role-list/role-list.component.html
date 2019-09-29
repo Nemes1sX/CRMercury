@@ -1,0 +1,36 @@
+<h1>Role List <button type="button" class="btn btn-primary">Add new</button></h1>
+
+<p></p>
+
+<p *ngIf="!roles"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="roles">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Permissions</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let role of roles">
+      <td>{{ role.title }}</td>
+      <td>{{ role.description }}</td>
+      <td>
+	    <ul>
+          <li *ngFor="let permission of role.permissionsDto">
+            <b>{{ permission.actionRoleName }} </b> 
+			<i *ngIf="permission.selfActionOnly">(Self only) </i>
+			<i *ngIf="!permission.selfActionOnly">(All) </i>
+            <i *ngIf="permission.actionCreate">Create </i>
+            <i *ngIf="permission.actionRead">Read </i>
+            <i *ngIf="permission.actionUpdate">Update </i>
+            <i *ngIf="permission.actionDelete">Delete </i>
+          </li>
+        </ul>
+	  </td>
+	  <td><a href="">Edit</a></td>
+    </tr>
+  </tbody>
+</table>

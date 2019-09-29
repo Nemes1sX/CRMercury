@@ -15,7 +15,7 @@ namespace CRMercury.Controllers{
         {
             obj = _obj;
         }
-        //CompanyDataAccessLayer obj = new CompanyDataAccessLayer ();
+      
 
         [HttpGet]  
         [Route("api/Company/Index")]  
