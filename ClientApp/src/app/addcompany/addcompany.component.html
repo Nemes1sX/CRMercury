@@ -1,0 +1,57 @@
+<div class="container" style="border:thin">  
+    <form #empadd='ngForm' (ngSubmit)="Register(cadd)" class="form-horizontal" style="width:50%"  >    
+    <div class="form-group" >  
+                <label class="control-label col-sm-2" for="name" >Name:</label>  
+                <div class="col-sm-10">  
+                  <input  style="width:50%"    type="text" class="form-control"  
+                   width="50%" id="name" placeholder="Enter Company name"  
+                   name="name" name required [(ngModel)]='objemp.name'  #firstname="ngModel">  
+               <span class="help-bpx" *ngIf="name.touched && !name.valid ">Required</span>  
+                </div>  
+              </div>  
+              <div class="form-group" >  
+                <label class="control-label col-sm-2" for="ceo">Ceo Name:</label>  
+                <div class="col-sm-10">  
+                  <input style="width:50%"   required type="text" class="form-control" width="50%"   
+                  id="ceoname" placeholder="Enter CEO Name" name="ceoname" ceoname required [(ngModel)]='objemp.ceoname'  #lastname="ngModel">  
+                  <span class="help-bpx" *ngIf="ceoname.touched && !ceoname.valid ">Required</span>  
+                </div>   
+              </div>  
+              <div class="form-group" >  
+                <label class="control-label col-sm-2" for="email">Email:</label>  
+                <div class="col-sm-10">  
+                  <input #email="ngModel"  style="width:50%" type="email" [(ngModel)]='objemp.email' class="form-control" width="50%" id="email" placeholder="Enter email" name="email">  
+                  <span class="help-bpx" *ngIf="email.touched && !email.valid ">**</span>  
+                </div>  
+              </div>
+              <div class="form-group" >  
+                <label class="control-label col-sm-2" for="email">Website:</label>  
+                <div class="col-sm-10">  
+                  <input #email="ngModel"  style="width:50%" type="website" [(ngModel)]='objemp.website' class="form-control" width="50%" id="email" placeholder="Enter email" name="website">  
+                  <span class="help-bpx" *ngIf="website.touched && !website.valid ">**</span>  
+                </div>  
+              </div> 
+              <div class="form-group" >  
+                <label class="control-label col-sm-2" for="email">Phone:</label>  
+                <div class="col-sm-10">  
+                  <input #email="ngModel"  style="width:50%" type="phone" [(ngModel)]='objemp.phone' class="form-control" width="50%" id="email" placeholder="Enter Phone" name="phone">  
+                  <span class="help-bpx" *ngIf="phone.touched && !phone.valid ">**</span>  
+                </div>  
+              </div>
+              <div class="form-group" >  
+                <label class="control-label col-sm-2" for="email">Status:</label>  
+                <div class="col-sm-10">  
+                  <select name="status" gender required [(ngModel)]='objemp.status'  #gender="ngModel">  
+                      <option value="true">Active</option>
+                      <option value="false">Inactive</option>
+                  <span class="help-bpx" *ngIf="status.touched && !status.valid ">**</span>  
+                </div>  
+              </div>          
+               <div class="form-group">          
+                <div class="col-sm-offset-2 col-sm-10">  
+                  <button  id="btnsubmit"  type="submit" class="btn btn-primary">Submit</button>  
+                </div>  
+              </div>  
+            </form>  
+          </div>  
+          <button style="display:none" type="button" #closeBtn  class="btn btn-default"   data-dismiss="modal">Close</button>  

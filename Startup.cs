@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using CRMercury.Models;
 
 namespace megaprojektas
 {
@@ -21,6 +23,21 @@ namespace megaprojektas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+        services.AddMvc(options => 
+    {
+        options.MaxModelValidationErrors = 50;
+        options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
+            (_) => "The field is required.");
+    })
+    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+/*services.AddSingleton
+    <IValidationAttributeAdapterProvider, 
+     CustomValidationAttributeAdapterProvider>();*/
+
+      services.AddDbContext<CRMercuryContext>(options =>    
+          options.UseSqlServer(Configuration.GetConnectionString("CRMercury")));
+
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
