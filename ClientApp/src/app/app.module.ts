@@ -17,13 +17,9 @@ import { AddCompanyComponent} from './addcompany/addcompany.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-<<<<<<< HEAD
     AboutusComponent,
     FetchCompanyComponent,
     AddCompanyComponent,
-=======
-    RoleComponent,
->>>>>>> 4b4364deec09789b63e3636e9dfe51fb4a6bbf93
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,16 +27,12 @@ import { AddCompanyComponent} from './addcompany/addcompany.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-<<<<<<< HEAD
       { path: '/aboutus', component: AboutusComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent },  
       { path: 'companies', component: FetchCompanyComponent },  
       { path: 'register-company', component: AddCompanyComponent },  
       { path: 'company/edit/:id', component: AddCompanyComponent },  
       { path: '**', redirectTo: 'home' }  
-=======
-      { path: 'role', component: RoleComponent },
->>>>>>> 4b4364deec09789b63e3636e9dfe51fb4a6bbf93
     ])
   ],
   providers: [CompanyService],
