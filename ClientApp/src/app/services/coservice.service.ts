@@ -1,18 +1,17 @@
 import { Injectable, Inject } from '@angular/core';  
-import { Http, Response } from '@angular/http';
-import { Observable } from "rxjs";
-import { map } from 'rxjs/operators';  
-import { Router } from '@angular/router';  
+import { HttpClient} from '@angular/common/http';
+import { Observable, of, Subject } from "rxjs";
+import { map } from 'rxjs/operators';   
 import { Company } from 'src/models/company';
-import 'rxjs/add/operator/map';  
-import 'rxjs/add/operator/catch';  
-import 'rxjs/add/observable/throw'; 
+import { throwError } from 'rxjs';
+import { catchError} from 'rxjs/operators';  
+
 
 @Injectable()  
 export class CompanyService {  
     myAppUrl: string = "";  
   
-    constructor(private _http: Http, @Inject('BASE_URL') baseUrl: string) {  
+    constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {  
         this.myAppUrl = baseUrl;  
     }  
   

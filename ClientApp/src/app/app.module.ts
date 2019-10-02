@@ -27,7 +27,7 @@ import { AddCompanyComponent} from './addcompany/addcompany.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: '/aboutus', component: AboutusComponent, pathMatch: 'full' },
+      { path: 'aboutus', component: AboutusComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent },  
       { path: 'companies', component: FetchCompanyComponent },  
       { path: 'register-company', component: AddCompanyComponent },  

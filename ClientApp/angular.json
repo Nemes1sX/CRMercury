@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "megaprojektas": {
+    "EFNgApp": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -52,18 +52,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "megaprojektas:build"
+            "browserTarget": "EFNgApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "megaprojektas:build:production"
+              "browserTarget": "EFNgApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "megaprojektas:build"
+            "browserTarget": "EFNgApp:build"
           }
         },
         "test": {
@@ -122,7 +122,7 @@
         }
       }
     },
-    "megaprojektas-e2e": {
+    "EFNgApp-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -130,7 +130,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "megaprojektas:serve"
+            "devServerTarget": "EFNgApp:serve"
           }
         },
         "lint": {
@@ -145,5 +145,5 @@
       }
     }
   },
-  "defaultProject": "megaprojektas"
+  "defaultProject": "EFNgApp"
 }

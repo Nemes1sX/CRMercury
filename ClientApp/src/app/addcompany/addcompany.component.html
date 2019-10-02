@@ -44,6 +44,7 @@
                   <select name="status" gender required [(ngModel)]='objemp.status'  #gender="ngModel">  
                       <option value="true">Active</option>
                       <option value="false">Inactive</option>
+                   </select>   
                   <span class="help-bpx" *ngIf="status.touched && !status.valid ">**</span>  
                 </div>  
               </div>          

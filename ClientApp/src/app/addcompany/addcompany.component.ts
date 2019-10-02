@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';  
-import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';  
-import { Http, Headers } from '@angular/http';  
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';  
+import { HttpClient} from '@angular/common/http';  
 import { FetchCompanyComponent } from '../fetchcompany/fetchcompany.component';  
 import { Router, ActivatedRoute } from '@angular/router';  
 import {CompanyService} from '../services/coservice.service';  

@@ -1,6 +1,4 @@
-import { Component, Inject } from '@angular/core';  
-import { Http, Headers } from '@angular/http';  
-import { Router, ActivatedRoute } from '@angular/router';  
+import { Component } from '@angular/core';  
 import { CompanyService } from '../services/coservice.service'  
 import { Company}  from 'src/models/company'; 
 
