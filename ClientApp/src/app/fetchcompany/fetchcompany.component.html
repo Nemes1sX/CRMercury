@@ -3,13 +3,17 @@ Open fetchemployee.component.html file and put the following code into it.
   
 <p>This component demonstrates fetching Employee data from the server.</p>  
   
-<p *ngIf="!empList"><em>Loading...</em></p>  
+<p *ngIf="!companyList"><em>Loading...</em></p>  
   
 <p>  
-    <a [routerLink]="['/register-employee']">Create New</a>  
+    <a class="btn btn-success" [routerLink]="['/companies/register']">Create New</a>  
 </p>  
-  
-<table class='table' *ngIf="empList">  
+
+<div *ngIf="companyList.length != 0; then rexist else noexist"></div>
+
+<ng-template #rexist>
+<table class='table' *ngIf="companyList.length != 0">  
+    
     <thead>  
         <tr>    
             <th>Name</th>  
@@ -17,11 +21,12 @@ Open fetchemployee.component.html file and put the following code into it.
             <th>Email</th>  
             <th>Phone</th>  
             <th>Website</th>  
-            <th>Status</th>  
+            <th>Status</th> 
+            <th>Actions</th> 
         </tr>  
 </thead>  
 <tbody>  
-    <tr *ngFor="let obj of objList">  
+    <tr *ngFor="let obj of companyList">  
         <td>{{ obj.name }}</td>  
         <td>{{ obj.ceoname }}</td>  
         <td>{{ obj.email }}</td>  
@@ -36,3 +41,5 @@ Open fetchemployee.component.html file and put the following code into it.
     </tr>  
 </tbody>  
 </table>
+</ng-template>
+<ng-template #noexist><h2>No records.</h2></ng-template>

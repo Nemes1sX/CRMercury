@@ -1,9 +1,8 @@
 import { Component, OnInit} from '@angular/core';  
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';  
-import { HttpClient} from '@angular/common/http';  
-import { FetchCompanyComponent } from '../fetchcompany/fetchcompany.component';  
 import { Router, ActivatedRoute } from '@angular/router';  
-import {CompanyService} from '../services/coservice.service';  
+import {CompanyService} from '../services/coservice.service'; 
+import {Company} from 'src/models/company'; 
 @Component({  
   templateUrl: './addcompany.component.html',   
 })  
@@ -21,23 +20,26 @@ export class AddCompanyComponent implements OnInit {
         }  
   
         this.companyForm = this._fb.group({  
-            employeeId: 0,  
+            companyId: 0,  
             name: ['', [Validators.required]],  
-            gender: ['', [Validators.required]],  
-            department: ['', [Validators.required]],  
-            city: ['', [Validators.required]]  
+            ceoname: ['', [Validators.required]],  
+            website: ['', [Validators.required]],  
+            phone: ['', [Validators.required]],  
+            email: ['', [Validators.required]],  
+            status: ['', [Validators.required]]  
         })  
     }  
   
     ngOnInit() {  
   
   
-        if (this.companyId > 0) {  
-            this.title = "Edit";  
-            this._companyService.getCompanyId(this.companyId)  
-                .subscribe(resp => this.companyForm.setValue(resp)  
-                , error => this.errorMessage = error);  
-        }  
+        if (this.companyId > 0) {
+            this.title = 'Edit';
+            this._companyService.getCompanyId(this.companyId)
+              .subscribe((response: Company) => {
+                this.companyForm.setValue(response);
+              }, error => console.error(error));
+          }  
   
     }  
   
@@ -49,20 +51,20 @@ export class AddCompanyComponent implements OnInit {
   
         if (this.title == "Create") {  
             this._companyService.saveCompany(this.companyForm.value)  
-                .subscribe((data) => {  
-                    this._router.navigate(['/fetch-employee']);  
-                }, error => this.errorMessage = error)  
+                .subscribe(() => {  
+                    this._router.navigate(['/companies']);  
+                },  error => console.error(error));
         }  
         else if (this.title == "Edit") {  
             this._companyService.updateCompany(this.companyForm.value)  
-                .subscribe((data) => {  
-                    this._router.navigate(['/fetch-employee']);  
-                }, error => this.errorMessage = error)  
+                .subscribe(() => {  
+                    this._router.navigate(['/companies']);  
+                }, error => console.error(error));  
         }  
     }  
   
     cancel() {  
-        this._router.navigate(['/fetch-employee']);  
+        this._router.navigate(['/companies']);  
     }  
   
     get name() { return this.companyForm.get('name'); }  

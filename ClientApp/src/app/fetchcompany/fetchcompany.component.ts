@@ -15,7 +15,7 @@ export class FetchCompanyComponent {
   
     getCompanies() {
         this._CompanyService.getAll().subscribe(
-          data => this.companyList 
+          (data: Company[]) => this.companyList = data
         );
       }
   

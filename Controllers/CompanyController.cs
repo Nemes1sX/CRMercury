@@ -21,12 +21,13 @@ namespace CRMercury.Controllers{
         [Route("api/Company/Index")]  
         public IEnumerable<Company> Index()  
         {  
+           // return new Company[] { new Company { id = 2, name = "foobar", website = "http://on.lt"  }} ;
             return obj.GetAll();  
         }  
   
         [HttpPost]  
         [Route("api/Company/Create")]  
-        public int Create([FromBody] Company company)  
+        public int Create(FromBody Company company)  
         {  
             return obj.AddCompany(company);  
         }  

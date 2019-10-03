@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using CRMercury.Models;
+using CRMercury.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,11 +26,14 @@ namespace CRMercury
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            
+             services.AddTransient<ICompany, CompanyDataAccessLayer>();
             services.AddDbContext<CRMercuryContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("CRMercury")));
 
-                
+          services.AddMvc(options => options.EnableEndpointRouting = false);
 
            /*  services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();

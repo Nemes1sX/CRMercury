@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;  
 using System.Threading.Tasks;  
 using CRMercury.Models;
-
+using CRMercury.Interfaces;
   
 namespace CRMercury.Models{
-    public class CompanyDataAccessLayer{
+    public class CompanyDataAccessLayer : ICompany{
            
             private CRMercuryContext db;
 
