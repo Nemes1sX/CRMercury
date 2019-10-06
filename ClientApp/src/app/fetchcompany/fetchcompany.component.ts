@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';  
-import { CompanyService } from '../services/coservice.service'  
+import { CompanyService } from '../services/company.service'  
 import { Company}  from 'src/models/company'; 
 
 @Component({  

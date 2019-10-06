@@ -1,0 +1,37 @@
+<h1>Employee Data</h1>
+
+<p>This component demonstrates fetching Employee data from the server.</p>
+
+<p *ngIf="!empList"><em>Loading...</em></p>
+
+<p>
+    <a class="btn btn-success" [routerLink]="['/employee/register']">Create New</a>
+</p>
+<div *ngIf="empList.length != 0; then rexist else noexist"></div>
+
+<ng-template #rexist>
+
+<table class='table' *ngIf="empList">
+    <thead>
+        <tr>
+            <th>Fullname</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of empList">
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.status }}</td>
+            <td>
+            <td>
+                <a [routerLink]="['/employee/edit/', emp.employeeId]">Edit</a> |
+                <a [routerLink]="" (click)="delete(emp.employeeId)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</ng-template>
+<ng-template #noexist><h2>No records.</h2></ng-template>

@@ -10,9 +10,11 @@ import { catchError} from 'rxjs/operators';
 @Injectable()  
 export class CompanyService {  
     myAppUrl: string = "";  
+    public headers: Headers;
   
     constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {  
         this.myAppUrl = baseUrl;  
+        //this.headers = Headers().set('Content-Type', 'application/json');
     }  
   
     getAll() {  

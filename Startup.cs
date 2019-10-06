@@ -29,6 +29,7 @@ namespace CRMercury
 
             
              services.AddTransient<ICompany, CompanyDataAccessLayer>();
+            services.AddTransient<IEmployee, EmployeeDataAccessLayer>();
             services.AddDbContext<CRMercuryContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("CRMercury")));

@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';  
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';  
 import { Router, ActivatedRoute } from '@angular/router';  
-import {CompanyService} from '../services/coservice.service'; 
+import {CompanyService} from '../services/company.service'; 
 import {Company} from 'src/models/company'; 
 @Component({  
   templateUrl: './addcompany.component.html',   

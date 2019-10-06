@@ -27,7 +27,7 @@ namespace CRMercury.Controllers{
   
         [HttpPost]  
         [Route("api/Company/Create")]  
-        public int Create(FromBody Company company)  
+        public int Create([FromBody] Company company)  
         {  
             return obj.AddCompany(company);  
         }  

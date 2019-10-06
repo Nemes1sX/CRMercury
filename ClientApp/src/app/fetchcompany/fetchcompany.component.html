@@ -6,7 +6,7 @@ Open fetchemployee.component.html file and put the following code into it.
 <p *ngIf="!companyList"><em>Loading...</em></p>  
   
 <p>  
-    <a class="btn btn-success" [routerLink]="['/companies/register']">Create New</a>  
+    <a class="btn btn-success" [routerLink]="['/company/register']">Create New</a>  
 </p>  
 
 <div *ngIf="companyList.length != 0; then rexist else noexist"></div>

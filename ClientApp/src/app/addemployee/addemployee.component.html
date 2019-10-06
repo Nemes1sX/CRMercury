@@ -1,0 +1,51 @@
+<h1>{{title}}</h1>
+<h3>Employee</h3>
+<hr />
+
+<form [formGroup]="employeeForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+    <div class="form-group row">
+        <label class=" control-label col-md-12" for="Fullname">Fullname</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="fullname">
+        </div>
+        <span class="text-danger" *ngIf="fullname?.invalid && formDir.submitted">
+            Fullname is required.
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Email">Email</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="email">
+        </div>
+        <span class="text-danger" *ngIf="email?.invalid && formDir.submitted">
+            Email is required
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Password">Password</label>
+        <div class="col-md-4">
+            <input class="form-control" type="password" formControlName="password">
+        </div>
+        <span class="text-danger" *ngIf="password?.invalid && formDir.submitted">
+            Password is required
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Status">Select Status</label>
+        <div class="col-md-4">
+            <select class="form-control" data-val="true" formControlName="status">
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+            </select>
+        </div>
+        <span class="text-danger" *ngIf="status?.invalid && formDir.submitted">
+            Status is required
+        </span>
+    </div>
+    <hr />
+    <div class="form-group">
+        <button type="submit" class=" btn btn-primary">Save</button>
+        <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+    </div>
+</form>
