@@ -28,13 +28,3 @@ export class FetchCompanyComponent {
         }  
     }  
 }  
-  
-interface CompanyData {  
-    companyId: number;  
-    name: string;  
-    ceoname: string;
-    email: string;  
-    phone: string;  
-    website: string;  
-    status: boolean;
-}

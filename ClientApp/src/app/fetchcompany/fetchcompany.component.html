@@ -35,8 +35,8 @@ Open fetchemployee.component.html file and put the following code into it.
         <td>{{ obj.status }}</td>  
         <td>  
         <td>  
-            <a [routerLink]="['/company/edit/', obj.CompanyId]">Edit</a> |  
-            <a [routerLink]="" (click)="delete(obj.CompanyId)">Delete</a>  
+            <a [routerLink]="['/company/edit/', obj.id]">Edit</a> |  
+            <a [routerLink]="" (click)="delete(obj.id)">Delete</a>  
         </td>  
     </tr>  
 </tbody>  

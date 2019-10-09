@@ -13,18 +13,18 @@ export class AddEmployeeComponent implements OnInit {
 
   employeeForm: FormGroup;
   title = 'Create';
-  employeeId: number;
+  id: number;
   errorMessage: any;
   
 
   constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
     private _employeeService: EmployeeService, private _router: Router) {
     if (this._avRoute.snapshot.params['id']) {
-      this.employeeId = this._avRoute.snapshot.params['id'];
+      this.id = this._avRoute.snapshot.params['id'];
     }
 
     this.employeeForm = this._fb.group({
-      employeeId: 0,
+      id: 0,
       fullname: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -35,9 +35,9 @@ export class AddEmployeeComponent implements OnInit {
   ngOnInit() {
     
 
-    if (this.employeeId > 0) {
+    if (this.id > 0) {
       this.title = 'Edit';
-      this._employeeService.getEmployeeById(this.employeeId)
+      this._employeeService.getEmployeeById(this.id)
         .subscribe((response: Employee) => {
           this.employeeForm.setValue(response);
         }, error => console.error(error));

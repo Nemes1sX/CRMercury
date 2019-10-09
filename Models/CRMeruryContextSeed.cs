@@ -12,16 +12,17 @@ namespace CRMercury.Models
         public static void Initialize(CRMercuryContext context)
         {
             context.Database.EnsureCreated();
-			AddCompanies(context);
+			AddEmployees(context);
         }
-        private static void AddCompanies(CRMercuryContext context)
+        private static void AddEmployees(CRMercuryContext context)
         {
-            var roles = new Company[]{
-                new Company{name = "Programmer", ceoname = "lala", website = "vardenis.lt", phone = "656", email = "vardenis@gmail.com", status = true},
-                new Company{name = "Programmer", ceoname = "lala", website = "vardenis.lt", phone = "656", email = "vardenis@gmail.com", status = true},
+            var employees = new Employee[]{
+                new Employee{fullname = "Programmer", password = "lala@gmail.com", email = "vardenis@gmail.com", status = true},
+                new Employee{fullname = "Programmer", password = "lala@gmail.com", email = "vardenis@gmail.com", status = true},
+
             };
 
-            context.Companies.AddRange(roles);
+            context.Employees.AddRange(employees);
             context.SaveChanges();
         }
     }
