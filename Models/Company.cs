@@ -20,7 +20,6 @@ namespace CRMercury.Models{
     [StringLength(50, ErrorMessage = "CEO Name length can't be more than 50.")]
     public string ceoname{get; set;}
     [Required]
-    [Url]
     public string website {get; set;}
     [Required]
     [EmailAddress]

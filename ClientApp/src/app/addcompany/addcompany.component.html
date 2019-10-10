@@ -52,9 +52,9 @@
     <div class="form-group row">
         <label class="control-label col-md-12" for="Status">Select Status</label>
         <div class="col-md-4">
-            <select class="form-control" data-val="true" formControlName="status">
-                <option value="true">Active</option>
-                <option value="false">Inactive</option>
+            <select class="form-control" data-val="true" formControlName="status" [ngModel]="caseSensitive">
+                <option [ngValue]="true">Active</option>
+                <option [ngValue]="false">Inactive</option>
             </select>
         </div>
         <span class="text-danger" *ngIf="status?.invalid && formDir.submitted">

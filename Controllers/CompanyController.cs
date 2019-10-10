@@ -7,7 +7,9 @@ using CRMercury.Models;
 using CRMercury.Interfaces;
 
 namespace CRMercury.Controllers{
-    public class CompanyController : Controller {
+    [ApiController]
+    [Route("api/[controller]")] 
+    public class CompanyController : ControllerBase {
 
           private readonly ICompany obj;
 
@@ -18,36 +20,35 @@ namespace CRMercury.Controllers{
       
 
         [HttpGet]  
-        [Route("api/Company/Index")]  
+        [Route("Index")]  
         public IEnumerable<Company> Index()  
         {  
-           // return new Company[] { new Company { id = 2, name = "foobar", website = "http://on.lt"  }} ;
             return obj.GetAll();  
         }  
   
         [HttpPost]  
-        [Route("api/Company/Create")]  
+        [Route("Create")]  
         public int Create([FromBody] Company company)  
         {  
             return obj.AddCompany(company);  
         }  
 
         [HttpGet]  
-        [Route("api/Company/Details/{id}")]  
+        [Route("Details/{id}")]  
         public Company Details(int id)  
         {  
             return obj.FindCompany(id);  
         }  
   
         [HttpPut]  
-        [Route("api/Employee/Edit")]  
+        [Route("Edit")]  
         public int Edit([FromBody]Company company)  
         {  
             return obj.UpdateCompany(company);  
         }  
   
         [HttpDelete]  
-        [Route("api/Company/Delete/{id}")]  
+        [Route("Delete/{id}")]  
         public int Delete(int id)  
         {  
             return obj.DeleteCompany(id);  

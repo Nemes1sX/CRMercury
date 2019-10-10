@@ -44,8 +44,7 @@ namespace CRMercury
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();*/
-            services.AddControllersWithViews();
-            services.AddRazorPages();
+           
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

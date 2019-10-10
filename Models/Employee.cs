@@ -15,17 +15,17 @@ namespace CRMercury.Models{
 
         public int id {get; set; }
 
-        [Required]
-        [RegularExpression(@"^[a-zA-Z\s]*$")]
+        //[Required]
+        //[RegularExpression(@"^[a-zA-Z\s]*$")]
         public string fullname {get; set;}
-        [Required]
-        [EmailAddress]
+        //[Required]
+        //[EmailAddress]
         public string email {get; set; }
-        [Required]
-        [StringLength(30, MinimumLength = 8, ErrorMessage = "Password length must be between 8 and 30.")]
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")]
+        //[Required]
+        //[StringLength(30, MinimumLength = 8, ErrorMessage = "Password length must be between 8 and 30.")]
+        //[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")]
         public string password {get; set;}
-        [Required]
+        //[Required]
         public bool status {get; set; }
 
         public ICollection<Task> Tasks { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CRMercury.Interfaces;
@@ -10,8 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CRMercury.Controllers
 {
-    [Route("api/[controller]")]
-    public class EmployeeController : Controller
+    [ApiController]
+    [Route("api/[controller]")] 
+    public class EmployeeController : ControllerBase
     {
         private readonly IEmployee objemployee;
 
@@ -31,6 +33,7 @@ namespace CRMercury.Controllers
         [Route("Create")]
         public int Create([FromBody] Employee employee)
         {
+        
             return objemployee.AddEmployee(employee);
         }
 
