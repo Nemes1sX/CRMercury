@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';  
-import { CompanyService } from '../services/company.service'  
+import { CompanyService } from '../services/company.service';
+import { ErrorHandlerService} from '../services/error-handler.service';  
 import { Company}  from 'src/models/company'; 
 
 @Component({  
@@ -8,8 +9,9 @@ import { Company}  from 'src/models/company';
   
 export class FetchCompanyComponent {  
     public companyList: Company[];  
+    public errorMessage: string = '';
   
-    constructor(private _CompanyService: CompanyService) {  
+    constructor(private _CompanyService: CompanyService, private errorHandler: ErrorHandlerService)  {  
         this.getCompanies();  
     }  
   
@@ -24,7 +26,8 @@ export class FetchCompanyComponent {
         if (ans) {  
             this._CompanyService.deleteCompany(companyID).subscribe((data) => {  
                 this.getCompanies();  
-            }, error => console.error(error))  
+            }, error => console.error(error));
+            this.errorMessage = this.errorHandler.errorMessage;
         }  
     }  
 }  

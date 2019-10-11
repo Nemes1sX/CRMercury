@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../services/employee.service';
+import { ErrorHandlerService} from '../services/error-handler.service';
 import { Employee } from 'src/models/employee';
 
 @Component({
@@ -14,11 +15,11 @@ export class AddEmployeeComponent implements OnInit {
   employeeForm: FormGroup;
   title = 'Create';
   id: number;
-  errorMessage: any;
+  errorMessage: string = '';
   
 
   constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
-    private _employeeService: EmployeeService, private _router: Router) {
+    private _employeeService: EmployeeService, private errorHandler: ErrorHandlerService, private _router: Router) {
     if (this._avRoute.snapshot.params['id']) {
       this.id = this._avRoute.snapshot.params['id'];
     }
@@ -41,6 +42,8 @@ export class AddEmployeeComponent implements OnInit {
         .subscribe((response: Employee) => {
           this.employeeForm.setValue(response);
         }, error => console.error(error));
+        this.errorMessage = this.errorHandler.errorMessage;
+
     }
   }
 
@@ -55,11 +58,13 @@ export class AddEmployeeComponent implements OnInit {
         .subscribe(() => {
           this._router.navigate(['/employee']);
         }, error => console.error(error));
+        this.errorMessage = this.errorHandler.errorMessage;
     } else if (this.title === 'Edit') {
       this._employeeService.updateEmployee(this.employeeForm.value)
         .subscribe(() => {
           this._router.navigate(['/employee']);
         }, error => console.error(error));
+        this.errorMessage = this.errorHandler.errorMessage;
     }
   }
 

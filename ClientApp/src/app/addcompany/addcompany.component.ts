@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';  
 import { Router, ActivatedRoute } from '@angular/router';  
 import {CompanyService} from '../services/company.service'; 
+import {ErrorHandlerService} from '../services/error-handler.service';
 import {Company} from 'src/models/company'; 
 @Component({  
   templateUrl: './addcompany.component.html',   
@@ -11,10 +12,10 @@ export class AddCompanyComponent implements OnInit {
     companyForm: FormGroup;  
     title: string = "Create";  
     id: number;  
-    errorMessage: any;  
+    errorMessage: string = '';  
   
     constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,  
-        private _companyService: CompanyService, private _router: Router) {  
+        private _companyService: CompanyService, private errorHandler: ErrorHandlerService, private _router: Router) {  
         if (this._avRoute.snapshot.params["id"]) {  
             this.id = this._avRoute.snapshot.params["id"];  
         }  
@@ -39,6 +40,7 @@ export class AddCompanyComponent implements OnInit {
               .subscribe((response: Company) => {
                 this.companyForm.setValue(response);
               }, error => console.error(error));
+              this.errorMessage = this.errorHandler.errorMessage;
           }  
   
     }  
@@ -54,12 +56,14 @@ export class AddCompanyComponent implements OnInit {
                 .subscribe(() => {  
                     this._router.navigate(['/company']);  
                 },  error => console.error(error));
+                this.errorMessage = this.errorHandler.errorMessage;
         }  
         else if (this.title == "Edit") {  
             this._companyService.updateCompany(this.companyForm.value)  
                 .subscribe(() => {  
                     this._router.navigate(['/company']);  
                 }, error => console.error(error));  
+                this.errorMessage = this.errorHandler.errorMessage;
         }  
     }  
   

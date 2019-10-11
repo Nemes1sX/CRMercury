@@ -14,6 +14,8 @@ import { FetchCompanyComponent} from './fetchcompany/fetchcompany.component';
 import { AddCompanyComponent} from './addcompany/addcompany.component';
 import { FetchEmployeeComponent} from './fetchemployee/fetchemployee.component';
 import { AddEmployeeComponent} from './addemployee/addemployee.component';
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { AddEmployeeComponent} from './addemployee/addemployee.component';
     AddCompanyComponent,
     FetchEmployeeComponent,
     AddEmployeeComponent,
+    InternalServerComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -42,7 +46,9 @@ import { AddEmployeeComponent} from './addemployee/addemployee.component';
       { path: 'employee', component: FetchEmployeeComponent},
       { path: 'employee/register', component: AddEmployeeComponent},
       { path: 'employee/edit/:id', component: AddEmployeeComponent},
-      { path: '**', redirectTo: 'home' }  
+      { path: '500', component: InternalServerComponent },
+      { path: '404', component: NotFoundComponent },
+      { path: '**', redirectTo: '/404' }  
     ])
   ],
   providers: [CompanyService, EmployeeService],
