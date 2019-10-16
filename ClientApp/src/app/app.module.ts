@@ -19,7 +19,7 @@ import { FetchEmployeeComponent} from './fetchemployee/fetchemployee.component';
 import { AddEmployeeComponent} from './addemployee/addemployee.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
-import { AddtaskComponent } from './tasks/addtask/addtask.component';
+import { AddTaskComponent } from './tasks/addtask/addtask.component';
 import { FetchtaskComponent } from './tasks/fetchtask/fetchtask.component';
 
 
@@ -35,7 +35,7 @@ import { FetchtaskComponent } from './tasks/fetchtask/fetchtask.component';
     AddEmployeeComponent,
     InternalServerComponent,
     NotFoundComponent,
-    AddtaskComponent,
+    AddTaskComponent,
     FetchtaskComponent,
   ],
   imports: [

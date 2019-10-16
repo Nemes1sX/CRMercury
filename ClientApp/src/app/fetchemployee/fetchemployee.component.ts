@@ -28,7 +28,9 @@ export class FetchEmployeeComponent {
         pageLength: 2
       };
           this._employeeService.getEmployees().subscribe(
-      (data: Employee[]) => { this.empList = data;
+      (data: Employee[]) => 
+      { 
+      this.empList = data;
       this.dtTrigger.next();
       }); 
 
