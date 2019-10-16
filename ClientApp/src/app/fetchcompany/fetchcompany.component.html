@@ -12,7 +12,7 @@ Open fetchemployee.component.html file and put the following code into it.
 <div *ngIf="companyList.length != 0; then rexist else noexist"></div>
 
 <ng-template #rexist>
-<table class='table' *ngIf="companyList.length != 0">  
+<table class='table' *ngIf="companyList.length != 0" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >  
     
     <thead>  
         <tr>    
@@ -33,7 +33,6 @@ Open fetchemployee.component.html file and put the following code into it.
         <td>{{ obj.phone }}</td>  
         <td>{{ obj.website }}</td>  
         <td>{{ obj.status }}</td>  
-        <td>  
         <td>  
             <a [routerLink]="['/company/edit/', obj.id]">Edit</a> |  
             <a [routerLink]="" (click)="delete(obj.id)">Delete</a>  

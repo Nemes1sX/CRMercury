@@ -11,6 +11,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": false,
+    "paths": {
+      "@angular/*": [
+        "../node_modules/@angular/*"
+      ]
+    },
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"

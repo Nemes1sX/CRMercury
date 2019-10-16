@@ -11,7 +11,7 @@
 
 <ng-template #rexist>
 
-<table class='table' *ngIf="empList">
+<table class='table' *ngIf="empList" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
     <thead>
         <tr>
             <th>Fullname</th>

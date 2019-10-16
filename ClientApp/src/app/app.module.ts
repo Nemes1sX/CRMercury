@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { DataTablesModule } from 'angular-datatables';
+import * as $ from 'jquery';
+
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -16,6 +19,8 @@ import { FetchEmployeeComponent} from './fetchemployee/fetchemployee.component';
 import { AddEmployeeComponent} from './addemployee/addemployee.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import { AddtaskComponent } from './tasks/addtask/addtask.component';
+import { FetchtaskComponent } from './tasks/fetchtask/fetchtask.component';
 
 
 @NgModule({
@@ -30,12 +35,15 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
     AddEmployeeComponent,
     InternalServerComponent,
     NotFoundComponent,
+    AddtaskComponent,
+    FetchtaskComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    DataTablesModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'aboutus', component: AboutusComponent, pathMatch: 'full' },
