@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router} from '@angular/router';
@@ -30,19 +31,21 @@ export class AddTaskComponent implements OnInit {
       if (this._avRoute.snapshot.params['id']) {
         this.id = this._avRoute.snapshot.params['id'];
       }
-     }
+     
 
-     /*this.taskForm = this._fb.group({
+     this.taskForm = this._fb.group({
       id: 0,
       name: ['', [Validators.required]],
       CompanyId: ['', [Validators.required]],
       EmployeeId: ['', [Validators.required]],
       taskdate: ['', [Validators.required]],
-      desciription: ['', [Validators.required]],
+      description: ['', [Validators.required]],
       state: ['', [Validators.required]],
       status: ['', [Validators.required]]
     })
-  }*/
+    this.getCompanies();
+    this.getEmployees();
+  }
 
   ngOnInit() {
 
@@ -59,6 +62,28 @@ export class AddTaskComponent implements OnInit {
 
   }
 
+  save() {
+
+    if (!this.taskForm.valid) {
+      return;
+    }
+
+    if (this.title === 'Create') {
+      this.taskService.saveTask(this.taskForm.value)
+        .subscribe(() => {
+          this._router.navigate(['/task']);
+        }, error => console.error(error));
+        this.errorMessage = this.errorHandler.errorMessage;
+    } else if (this.title === 'Edit') {
+      this.taskService.updateTask(this.taskForm.value)
+        .subscribe(() => {
+          this._router.navigate(['/task']);
+        }, error => console.error(error));
+        this.errorMessage = this.errorHandler.errorMessage;
+    }
+  }
+
+
   getEmployees(){
     this._employeeService.getEmployees().subscribe(
       (data: Employee[]) => this.empList = data
@@ -70,5 +95,13 @@ export class AddTaskComponent implements OnInit {
       (data: Company[]) => this.companyList = data
     )
   }
+
+  get name() { return this.taskForm.get('fullname'); }
+  get taskdate() { return this.taskForm.get('email'); }
+  get description() { return this.taskForm.get('description'); }
+  get CompanyId() { return this.taskForm.get('CompanyId'); }
+  get EmployeeId() { return this.taskForm.get('EmployeeId'); }
+  get state() { return this.taskForm.get('state'); }
+  get status() { return this.taskForm.get('status'); }
 
 }

@@ -92,7 +92,7 @@ namespace megaprojektas.Migrations
                     b.Property<string>("name")
                         .IsRequired();
 
-                    b.Property<int>("state");
+                    b.Property<string>("state");
 
                     b.Property<bool>("status");
 

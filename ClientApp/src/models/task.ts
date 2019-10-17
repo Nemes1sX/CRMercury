@@ -1,10 +1,12 @@
+import { DatePipe } from "@angular/common";
+
 export class Task {
 id: number;
 CompanyId: number;
 EmployeeId: number;
 name: string;
-taskdate: Date;
+taskdate: DatePipe;
 description: string;
-state: number;
+state: string;
 status: boolean;
 }

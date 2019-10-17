@@ -1,1 +1,112 @@
-<p>addtask works!</p>
+<h1>{{title}}</h1>
+<h3>Employee</h3>
+<hr />
+
+<form [formGroup]="taskForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+    <div class="form-group row">
+        <label class=" control-label col-md-12" for="Fullname">Name</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="name">
+        </div>
+        <span class="text-danger" *ngIf="fullname?.invalid && formDir.submitted">
+            Name is required.
+        </span>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Email">Task Date</label>
+        <div class="col-md-4">
+            <dl-date-time-picker
+                startView="day"
+                maxView="year"
+                minView="minute"
+                minuteStep="10"
+                formControlName="taskdate"
+            >    
+            </dl-date-time-picker>
+        </div>
+        <span class="text-danger" *ngIf="taskdate?.invalid && formDir.submitted">
+                Taskdate is required
+        </span>    
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Password">Description</label>
+        <div class="col-md-4">
+            <textarea class="form-control" col="20" row="20" formControlName="description"></textarea>
+        </div>
+        <span class="text-danger" *ngIf="description?.invalid && formDir.submitted">
+            Description is required
+        </span>
+    </div>
+    <div class="form-group row">
+            <label class="control-label col-md-12" for="Status">Employee</label>
+            <div class="col-md-4">
+                <select class="form-control" data-val="true" formControlName="EmployeeId" > 
+                    <option value="">Select Employee</option>
+                    <option *ngFor="let emp of empList" [ngValue]="emp.id">{{ emp.fullname }}</option>
+                </select>
+            </div>
+            <span class="text-danger" *ngIf="EmployeeId?.invalid && formDir.submitted">
+                Employee is required
+            </span>
+    </div>
+    <div class="form-group row">
+            <label class="control-label col-md-12" for="Status">Company</label>
+            <div class="col-md-4">
+                <select class="form-control" data-val="true" formControlName="CompanyId"> 
+                    <option value="">Select Company</option>
+                    <option *ngFor="let company of companyList" [ngValue]="company.id">{{ company.name }}</option>
+                </select>
+            </div>
+            <span class="text-danger" *ngIf="CompanyId?.invalid && formDir.submitted">
+                Company is required
+            </span>
+    </div>
+    <div class="form-group row">
+            <label class="control-label col-md-12" for="Status">Select State</label>
+            <div class="col-md-4">
+                <select class="form-control" data-val="true" formControlName="state"> 
+                    <option [ngValue]="0">Started</option>
+                    <option [ngValue]="1">Planned</option>
+                    <option [ngValue]="2">Executed</option>
+                    <option [ngValue]="3">Delayed</option>
+                    <option [ngValue]="4">Completed</option>
+                </select>
+            </div>
+            <span class="text-danger" *ngIf="state?.invalid && formDir.submitted">
+                State is required
+            </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Status">Select Status</label>
+        <div class="col-md-4">
+            <select class="form-control" data-val="true" formControlName="status" [(ngModel)]="caseSensitive"> 
+                <option [ngValue]="true">Active</option>
+                <option [ngValue]="false">Inactive</option>
+            </select>
+        </div>
+        <span class="text-danger" *ngIf="status?.invalid && formDir.submitted">
+            Status is required
+        </span>
+    </div>
+    <hr />
+    <div class="form-group">
+        <button type="submit" class=" btn btn-primary">Save</button>
+        <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+    </div>
+</form>
+
+    <!--<div class="form-group row">
+        <label class="control-label col-md-12" for="Email">Task Date</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="taskdate"
+            placeholder="yyyy-mm-dd" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+        </div>
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)
+        </div>
+        <span class="text-danger" *ngIf="email?.invalid && formDir.submitted">
+            Taskdate is required
+        </span>
+    </div>-->

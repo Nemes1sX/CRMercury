@@ -1,1 +1,43 @@
-<p>fetchtask works!</p>
+<h1>Task</h1>
+
+
+<p *ngIf="!empList"><em>Loading...</em></p>
+
+<p>
+        <a class="btn btn-success" [routerLink]="['/task/register']">Create New</a>
+    </p>
+    <div *ngIf="taskList.length != 0; then rexist else noexist"></div>
+    
+    <ng-template #rexist>
+    
+    <table class='table' *ngIf="taskList" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Taskdate</th>
+                <th>Description</th>
+                <th>Employee</th>
+                <th>Company</th>
+                <th>State</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of taskList">
+                <td>{{ task.name }}</td>
+                <td>{{ task.taskdate }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.CompanyId }}</td>
+                <td>{{ task.EmployeeId}}</td>
+                <td>{{ task.state}}</td>
+                <td>{{ task.status}}</td>
+                <td>
+                    <a class="btn btn-info" [routerLink]="['/employee/edit/', emp.id]">Edit</a> 
+                    <a class="btn btn-danger" [routerLink]="" (click)="delete(emp.id)">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </ng-template>
+    <ng-template #noexist><h2>No records.</h2></ng-template>

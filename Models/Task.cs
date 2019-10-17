@@ -10,7 +10,7 @@ using CRMercury.Models;
 
 namespace CRMercury.Models {
 
-public enum State{
+public enum State : int{
     Started, Planned, Executed, Delayed, Completed
 }
 
@@ -30,7 +30,7 @@ public class Task{
     [StringLength(1000, ErrorMessage = "Task description length can't be more than 1000.")]
     public string description {get; set;}
     [Required]
-    public State? state {get; set;}
+    public State state {get; set;}
     [Required]
     public bool status {get; set;}
 

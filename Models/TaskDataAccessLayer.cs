@@ -20,7 +20,7 @@ namespace CRMercury.Models {
         {
             try
             {
-                return db.Tasks.ToList();
+                return db.Tasks.Include(e => e.Employee).Include(c => c.Company).ToList();
             }
             catch
             {

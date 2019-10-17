@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CompanyService } from './services/company.service'; 
 import { EmployeeService} from './services/employee.service';
+import { TaskService} from './services/task.service';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
+import {DatePipe} from '@angular/common';
+import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 import * as $ from 'jquery';
 
 
@@ -44,6 +47,8 @@ import { FetchtaskComponent } from './tasks/fetchtask/fetchtask.component';
     FormsModule,
     ReactiveFormsModule,
     DataTablesModule,
+    DlDateTimeDateModule,  
+    DlDateTimePickerModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'aboutus', component: AboutusComponent, pathMatch: 'full' },
@@ -54,12 +59,15 @@ import { FetchtaskComponent } from './tasks/fetchtask/fetchtask.component';
       { path: 'employee', component: FetchEmployeeComponent},
       { path: 'employee/register', component: AddEmployeeComponent},
       { path: 'employee/edit/:id', component: AddEmployeeComponent},
+      { path: 'task', component: FetchtaskComponent},
+      { path: 'task/register', component: AddTaskComponent},
+      { path: 'task/edit/:id', component: AddTaskComponent},
       { path: '500', component: InternalServerComponent },
       { path: '404', component: NotFoundComponent },
       { path: '**', redirectTo: '/404' }  
     ])
   ],
-  providers: [CompanyService, EmployeeService],
+  providers: [CompanyService, EmployeeService, TaskService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
