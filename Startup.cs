@@ -11,6 +11,7 @@ using CRMercury.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace CRMercury
 {
@@ -47,6 +48,10 @@ namespace CRMercury
             services.AddAuthentication()
                 .AddIdentityServerJwt();*/
            
+
+                services.AddControllers().
+           AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
