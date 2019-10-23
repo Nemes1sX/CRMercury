@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CompanyService } from './services/company.service'; 
 import { EmployeeService} from './services/employee.service';
 import { TaskService} from './services/task.service';
+import { ErrorHandlerService} from './services/error-handler.service';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -67,7 +68,7 @@ import { FetchtaskComponent } from './tasks/fetchtask/fetchtask.component';
       { path: '**', redirectTo: '/404' }  
     ])
   ],
-  providers: [CompanyService, EmployeeService, TaskService, DatePipe],
+  providers: [CompanyService, EmployeeService, TaskService, ErrorHandlerService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

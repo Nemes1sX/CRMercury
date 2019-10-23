@@ -27,6 +27,43 @@ namespace CRMercury.Models{
             }  
         }  
   
+       public IEnumerable<Company> Sort(string sort){
+              
+
+            var Companies = from c in db.Companies
+                           select c;
+             switch(sort)
+            {
+                case "name":
+             Companies =   db.Companies.OrderByDescending(c => c.name);
+                    break;
+                case "ceoname":
+             Companies =   db.Companies.OrderBy(c => c.ceoname);
+                    break;
+                default:
+             Companies =  db.Companies.OrderBy(c => c.name);
+                    break;      
+            }
+            return Companies.ToList();
+           
+          /* try
+            {
+                return db.Companies.ToList();
+            }
+            catch
+            {
+                throw;
+            }*/
+
+        } 
+        public IEnumerable<Company> Search(string key){
+        if (!String.IsNullOrEmpty(key)){
+            return  db.Companies.Where(c => c.name.Contains(key)
+                               || c.ceoname.Contains(key));
+            } 
+            return db.Companies.ToList();                  
+        }
+
         //To Add new employee record   
         public int AddCompany(Company company)  
         {  

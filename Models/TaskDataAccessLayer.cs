@@ -20,7 +20,8 @@ namespace CRMercury.Models {
         {
             try
             {
-                return db.Tasks.Include(e => e.Employee).Include(c => c.Company).ToList();
+                return db.Tasks.Include(e => e.Employee).
+                    Include(c => c.Company).ToList();
             }
             catch
             {
@@ -69,8 +70,8 @@ namespace CRMercury.Models {
             public int DeleteTask(int id){
                 try
                 {
-                    Task tsk = db.Tasks.Find(id);
-                    db.Tasks.Remove(tsk);
+                    Task task = db.Tasks.Find(id);
+                    db.Tasks.Remove(task);
                     db.SaveChanges();
                     return 1;
                 }

@@ -52,6 +52,16 @@ namespace CRMercury.Controllers{
         public int Delete(int id)  
         {  
             return obj.DeleteCompany(id);  
-        }  
+        }
+        [HttpGet]
+        [Route("Index/Sort/{sort}")]
+        public IEnumerable<Company> Sort(string sort){
+            return obj.Sort(sort);
+        }
+        [HttpGet]
+        [Route("Index/Search/{key}")]
+        public IEnumerable<Company> Search(string key){
+            return obj.Search(key);
+        }
     }
 }

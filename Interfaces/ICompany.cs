@@ -13,5 +13,8 @@ namespace CRMercury.Interfaces
         int UpdateCompany(Company company);
         Company FindCompany(int id);
         int DeleteCompany(int id);
+        IEnumerable<Company> Sort(string sort);
+         IEnumerable<Company> Search(string key);
+
     }
 }

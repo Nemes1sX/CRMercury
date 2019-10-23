@@ -1,11 +1,18 @@
+using System;
+using System.Reflection;
+using System.Text;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-//using Microsoft.AspNetCore.Identity;
-//using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using CRMercury.Controllers;
 using CRMercury.Models;
 using CRMercury.Interfaces;
 using Microsoft.Extensions.Configuration;
@@ -38,15 +45,65 @@ namespace CRMercury
                     Configuration.GetConnectionString("CRMercury")));
 
           services.AddMvc(options => options.EnableEndpointRouting = false);
+              services.AddSwaggerGen(c =>
+                {
+                c.SwaggerDoc("v1", new OpenApiInfo 
+                { 
+                    Title = "My API", 
+                    Version = "v1",
+                     Description = "A simple example ASP.NET Core Web API",
+                    TermsOfService = new Uri("https://example.com/terms"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Shayne Boyer",
+                        Email = string.Empty,
+                        Url = new Uri("https://twitter.com/spboyer"),
+                    },
+                    License = new OpenApiLicense
+                     {
+                        Name = "Use under LICX",
+                        Url = new Uri("https://example.com/license"),
+                    }
+                }
+                );
+                });
 
-           /*  services.AddDefaultIdentity<ApplicationUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            /*   services.AddDefaultIdentity<Employee>()
+                .AddEntityFrameworkStores<CRMercuryContext>();
 
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+           /*   services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 4;
+            }
+            );*/
+          //Jwt Authentication
 
-            services.AddAuthentication()
-                .AddIdentityServerJwt();*/
+         /*   var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings:JWT_Secret"].ToString());
+
+         services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x=> {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = false;
+                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });*/
+
+                services.AddCors();
+
            
 
                 services.AddControllers().
@@ -82,7 +139,13 @@ namespace CRMercury
             }
 
             app.UseRouting();
-
+             
+         /*    app.UseCors(builder =>
+                builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+            
+            );*/
             app.UseAuthentication();
             //app.UseIdentityServer();
             app.UseAuthorization();
@@ -105,6 +168,16 @@ namespace CRMercury
                 {
                     spa.UseAngularCliServer(npmScript: "start");
                 }
+            });
+
+             app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
             });
         }
     }
