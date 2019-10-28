@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using Microsoft.AspNetCore.Authentication;
@@ -40,9 +42,13 @@ namespace CRMercury
             services.AddTransient<IEmployee, EmployeeDataAccessLayer>();
             services.AddTransient<ITask, TasksDataAccessLayer>();
 
+            services.Configure<UserSettings>(Configuration.GetSection("ApplicationSettings"));
+
             services.AddDbContext<CRMercuryContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("CRMercury")));
+
+                    
 
           services.AddMvc(options => options.EnableEndpointRouting = false);
               services.AddSwaggerGen(c =>
@@ -68,10 +74,12 @@ namespace CRMercury
                 );
                 });
 
-            /*   services.AddDefaultIdentity<Employee>()
+                   services.AddDefaultIdentity<UserModel>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<CRMercuryContext>();
 
-           /*   services.Configure<IdentityOptions>(options =>
+
+            services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;
                 options.Password.RequireNonAlphanumeric = false;
@@ -79,11 +87,11 @@ namespace CRMercury
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 4;
             }
-            );*/
+            );
           //Jwt Authentication
 
-         /*   var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings:JWT_Secret"].ToString());
-
+            var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings:JWT_Secret"].ToString());
+            
          services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -100,7 +108,7 @@ namespace CRMercury
                     ValidateAudience = false,
                     ClockSkew = TimeSpan.Zero
                 };
-            });*/
+            });
 
                 services.AddCors();
 
@@ -140,15 +148,13 @@ namespace CRMercury
 
             app.UseRouting();
              
-         /*    app.UseCors(builder =>
+           /*  app.UseCors(builder =>
                 builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
                 .AllowAnyHeader()
                 .AllowAnyMethod()
             
             );*/
-            app.UseAuthentication();
-            //app.UseIdentityServer();
-            app.UseAuthorization();
+           app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

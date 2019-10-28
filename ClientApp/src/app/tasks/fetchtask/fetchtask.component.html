@@ -28,10 +28,19 @@
                 <td>{{ task.name }}</td>
                 <td>{{ task.taskdate }}</td>
                 <td>{{ task.description }}</td>
-                <td>{{ task.CompanyId }}</td>
-                <td>{{ task.EmployeeId}}</td>
-                <td>{{ task.state}}</td>
-                <td>{{ task.status}}</td>
+                <td>{{ task.employee.fullname}}</td>
+                <td>{{ task.company.name }}</td>
+                <td [ngSwitch]="task.state">
+                    <span *ngSwitchCase="0">Started</span>
+                    <span *ngSwitchCase="1">Planned</span>
+                    <span  *ngSwitchCase="2">Executed</span>  
+                    <span  *ngSwitchCase="3">Delayed</span> 
+                    <span  *ngSwitchCase="4">Completed</span>
+                    <span *ngSwitchDefault>Not Defined</span>
+                </td>
+                <td *ngIf="task.status; then thenblock else elseblock"></td>
+                    <ng-template #thenblock><td>Active</td></ng-template>
+                    <ng-template #elseblock><td>Inactive</td></ng-template>   
                 <td>
                     <a class="btn btn-info" [routerLink]="['/task/edit/', task.id]">Edit</a> 
                     <a class="btn btn-danger" [routerLink]="" (click)="delete(task.id)">Delete</a>

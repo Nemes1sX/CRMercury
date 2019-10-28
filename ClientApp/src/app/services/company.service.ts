@@ -55,6 +55,13 @@ export class CompanyService {
               return response;
             })); 
     }  
+    sort(sort: string){
+      return this._http.get(this.myAppUrl + "api/Company/Index/Sort/" + sort)
+      .pipe(map(
+        response => {
+          return response;
+        }));
+    }
     errorHandler(error: Response) {  
         console.log(error);  
         return Observable.throw(error);  

@@ -36,8 +36,8 @@ export class AddTaskComponent implements OnInit {
      this.taskForm = this._fb.group({
       id: 0,
       name: ['', [Validators.required]],
-      CompanyId: ['', [Validators.required]],
-      EmployeeId: ['', [Validators.required]],
+      companyId: ['', [Validators.required]],
+      employeeId: ['', [Validators.required]],
       taskdate: ['', [Validators.required]],
       description: ['', [Validators.required]],
       state: ['', [Validators.required]],
@@ -97,10 +97,10 @@ export class AddTaskComponent implements OnInit {
   }
 
   get name() { return this.taskForm.get('fullname'); }
-  get taskdate() { return this.taskForm.get('email'); }
+  get taskdate() { return  this.taskForm.get('taskdate'); }
   get description() { return this.taskForm.get('description'); }
-  get CompanyId() { return this.taskForm.get('CompanyId'); }
-  get EmployeeId() { return this.taskForm.get('EmployeeId'); }
+  get companyId() { return this.taskForm.get('companyId'); }
+  get employeeId() { return this.taskForm.get('employeeId'); }
   get state() { return this.taskForm.get('state'); }
   get status() { return this.taskForm.get('status'); }
 

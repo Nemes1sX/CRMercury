@@ -6,79 +6,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CRMercury.Models {
+namespace CRMercury.Models 
+{
     public class TasksDataAccessLayer : ITask {
 
         private CRMercuryContext db;
 
-          public TasksDataAccessLayer(CRMercuryContext _db)
+        public TasksDataAccessLayer(CRMercuryContext _db)
         {
             db = _db;
         }
            
-             public IEnumerable<Task> GetAll()
-        {
-            try
+        public IEnumerable<Task> GetAll()
             {
-                return db.Tasks.Include(e => e.Employee).
-                    Include(c => c.Company).ToList();
+                return db.Tasks.Include(e => e.Employee).Include(c => c.Company).ToList();
             }
-            catch
-            {
-                throw;
-            }
-        }
-            public int AddTask(Task task)
-            {
-                try
-                {
-                    db.Tasks.Add(task);
-                    db.SaveChanges(); 
-                    return 1;
-                }
-                catch
-                {
-                   throw;      
-                }
+        public int AddTask(Task task)
+            {          
+                db.Tasks.Add(task);
+                db.SaveChanges(); 
+                return 1;
             }
 
-        public Task FindTask(int id){
-            try
+        public Task FindTask(int id)
             {
-                Task task = db.Tasks.Find(id);
+                Task task = db.Tasks.Include(e => e.Employee)
+                .Include(c => c.Company)
+                .SingleOrDefault(x => x.id == id);
                 return task;
             }
-            catch
-            {
-                throw;
-            }
-        }
 
-            public int UpdateTask(Task task)
+        public int UpdateTask(Task task)
             {
-                try
-                {
-                    db.Entry(task).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return 1;
-                }
-                catch
-                {
-                  throw;  
-                }
+                db.Entry(task).State = EntityState.Modified;
+                db.SaveChanges();
+                return 1;
             }
-            public int DeleteTask(int id){
-                try
-                {
+            public int DeleteTask(int id)
+                {          
                     Task task = db.Tasks.Find(id);
                     db.Tasks.Remove(task);
                     db.SaveChanges();
                     return 1;
-                }
-                catch
-                {
-                    throw;
-                }
-            }
+                }         
     }
 }

@@ -1,5 +1,5 @@
 
-
+using Microsoft.AspNetCore.Identity;
 using System;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations;
@@ -10,8 +10,11 @@ using CRMercury.Models;
 
 namespace CRMercury.Models{
 
+    public enum Role : int {
+        Admin, Ceo, Employee
+    }
 
-    public class Employee{
+    public class Employee {
 
         public int id {get; set; }
 
@@ -26,6 +29,8 @@ namespace CRMercury.Models{
         public string password {get; set;}
         [Required]
         public bool status {get; set; }
+
+        //public Role role {get; set;}
 
         public ICollection<Task> Tasks { get; set; }
 

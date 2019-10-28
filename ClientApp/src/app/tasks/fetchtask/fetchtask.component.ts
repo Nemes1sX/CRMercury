@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';  
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule} from '@angular/core';
 import { Subject} from 'rxjs';
 import { ErrorHandlerService} from '../../services/error-handler.service';
 import { EmployeeService} from '../../services/employee.service';
@@ -8,6 +11,10 @@ import { Company } from 'src/models/company';
 import {TaskService} from '../../services/task.service';
 import { Task } from 'src/models/task';
 
+@NgModule({
+  imports: [CommonModule],
+  declarations: [FetchtaskComponent]
+})
 @Component({
   selector: 'app-fetchtask',
   templateUrl: './fetchtask.component.html',
