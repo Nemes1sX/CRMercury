@@ -17,12 +17,13 @@
     <div class="form-group row">
         <label class="control-label col-md-12" for="Task Date">Task Date</label>
         <div class="col-md-4">
-            <dl-date-time-picker
+           <dl-date-time-picker
                 startView="day"
                 maxView="year"
                 minView="minute"
                 minuteStep="10"
                 formControlName="taskdate"
+                [(ngModel)]="taskdate"
             >    
             </dl-date-time-picker>
         </div>
@@ -33,7 +34,7 @@
     <div class="form-group row">
         <label class="control-label col-md-12" for="Password">Description</label>
         <div class="col-md-4">
-            <textarea class="form-control" col="20" row="20" name="description" formControlName="description" [(ngModel)]="obj.description"></textarea>
+            <textarea class="form-control" col="20" row="20" name="description" formControlName="description"></textarea>
         </div>
         <span class="text-danger" *ngIf="description?.invalid && formDir.submitted">
             Description is required

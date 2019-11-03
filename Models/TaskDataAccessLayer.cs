@@ -30,9 +30,7 @@ namespace CRMercury.Models
 
         public Task FindTask(int id)
             {
-                Task task = db.Tasks.Include(e => e.Employee)
-                .Include(c => c.Company)
-                .SingleOrDefault(x => x.id == id);
+                Task task = db.Tasks.SingleOrDefault(x => x.id == id);
                 return task;
             }
 

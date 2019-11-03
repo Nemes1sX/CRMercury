@@ -71,9 +71,4 @@ export class AddEmployeeComponent implements OnInit {
   cancel() {
     this._router.navigate(['/employee']);
   }
-
-  get fullname() { return this.employeeForm.get('fullname'); }
-  get email() { return this.employeeForm.get('email'); }
-  get password() { return this.employeeForm.get('password'); }
-  get status() { return this.employeeForm.get('status'); }
 }

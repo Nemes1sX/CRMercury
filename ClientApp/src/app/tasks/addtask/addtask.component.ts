@@ -54,6 +54,9 @@ export class AddTaskComponent implements OnInit {
       this.title = 'Edit';
       this.taskService.getTaskById(this.id)
         .subscribe((response: Task) => {
+          delete response.company; 
+          delete response.employee;
+          response.taskdate = new Date(response.taskdate);
           this.taskForm.setValue(response);
         }, error => console.error(error));
         this.errorMessage = this.errorHandler.errorMessage;
@@ -96,12 +99,12 @@ export class AddTaskComponent implements OnInit {
     )
   }
 
-  get name() { return this.taskForm.get('fullname'); }
+ /* get name() { return this.taskForm.get('fullname'); }
   get taskdate() { return  this.taskForm.get('taskdate'); }
   get description() { return this.taskForm.get('description'); }
   get companyId() { return this.taskForm.get('companyId'); }
   get employeeId() { return this.taskForm.get('employeeId'); }
   get state() { return this.taskForm.get('state'); }
-  get status() { return this.taskForm.get('status'); }
+  get status() { return this.taskForm.get('status'); }*/
 
 }
