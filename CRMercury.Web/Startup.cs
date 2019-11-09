@@ -17,6 +17,7 @@ using Microsoft.OpenApi.Models;
 using CRMercury.Controllers;
 using CRMercury.Models;
 using CRMercury.Interfaces;
+using CRMercury.Ioc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

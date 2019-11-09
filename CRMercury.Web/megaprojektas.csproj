@@ -24,12 +24,18 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0" />
+    <PackageReference Include="Microsoft.OpenApi" Version="1.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
     <PackageReference Include="NodaTime" Version="2.4.7" />
     <PackageReference Include="python" Version="3.7.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
 
   </ItemGroup>
 
+<ItemGroup>
+  <ProjectReference Include="..\CRMercury.App\CRMercury.App.csproj" />
+  <ProjectReference Include="..\CRMercury.Ioc\CRMercury.Ioc.csproj" />
+</ItemGroup>
   
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
