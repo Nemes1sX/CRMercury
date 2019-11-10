@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CRMercury.App\\Converters",
+    "\\CRMercury.App\\Dto",
+    "\\CRMercury.App\\Interfaces",
+    "\\CRMercury.App\\Services",
+    "\\CRMercury.App\\ViewModels",
+    "\\CRMercury.Data\\Interfaces",
+    "\\CRMercury.Data\\Models",
+    "\\CRMercury.Data\\Repositories"
+  ],
+  "SelectedNode": "\\CRMercury.Web",
+  "PreviewInSolutionExplorer": false
+}

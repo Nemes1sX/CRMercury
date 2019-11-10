@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using SimpleCRM.App.Dto;
-using SimpleCRM.App.ViewModels;
-using CRM.Data.Models;
+using CRMercury.App.Dto;
+using CRMercury.App.ViewModels;
+using CRMercury.Data.Models;
 
 namespace CRMerucry.App.Converters
 {
