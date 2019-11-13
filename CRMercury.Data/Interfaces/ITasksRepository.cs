@@ -5,17 +5,10 @@ using System.Linq;
 using System.Threading;
 
 namespace CRMercury.Interfaces {
-    public interface ITask {
-    IEnumerable<Task> GetAll();
+    public interface ITask : IGenericRepository<Task> {
+            
+        Task<IEnumerable<Task>> GetAllTasks();
 
-    int AddTask(Task task);
-
-    Task FindTask(int id);
-
-    int UpdateTask(Task task);
-
-    int DeleteTask(int id);
-
-
+        Task<Task> FindTask(int id);
     }
 }

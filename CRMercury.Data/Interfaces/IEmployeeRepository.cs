@@ -8,7 +8,7 @@ namespace CRMercury.Data.Interfaces
 {
     public interface IEmployeeRepository : IGenericRepository<Employee>
     {
-        Task<IEnumerable<Employee>> GetEmployeeListAsync();
-        Task<Employee> GetEmployeeAsync(int id);
+        Task<IEnumerable<Employee>> GetAllEmployees();
+        Task<Employee> GetEmployeeData(int id);
     }
 }

@@ -1,17 +1,14 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
-using CRMercury.Models;
+using CRMercury.Data.Models;
 
 
- namespace CRMercury.Models {
+ namespace CRMercury.Data.Models {
   public class CRMercuryContext : DbContext{
          public CRMercuryContext(DbContextOptions<CRMercuryContext> options)
             : base(options)

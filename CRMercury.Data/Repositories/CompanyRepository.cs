@@ -12,7 +12,7 @@ namespace CRMercury.Data.Repositories
 {
     public class CompanyRepository : GenericRepository<Company>, ICompanyRepository
     {
-        public CompanyRepository(SimpleCRMContext context)
+        public CompanyRepository(CRMercuryContext context)
             : base(context)
         {
         }

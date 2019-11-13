@@ -12,25 +12,9 @@ namespace CRMercury.Data.Repositories
 {
     public class EmployeeRepository : GenericRepository<Employee>, IEmployeeRepository
     {
-        public EmployeeRepository(SimpleCRMContext context)
+        public EmployeeRepository(CRMercuryContext context)
             : base(context)
         {
-        }
-
-        private Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Employee, Role> EmployeeQuery()
-        {
-            return _context.Employees
-                .AsNoTracking();
-        }
-
-        public async Task<IEnumerable<Employee>> GetEmployeeListAsync()
-        {
-            return await this.EmployeeQuery().ToListAsync();
-        }
-
-        public async Task<Employee> GetEmployeeAsync(int id)
-        {
-            return await this.EmployeeQuery().FirstOrDefaultAsync(e => e.Id == id);
         }
 
     }

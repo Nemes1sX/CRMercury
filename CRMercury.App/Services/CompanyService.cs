@@ -21,7 +21,7 @@ namespace SimpleCRM.App.Services
             _companyConverter = new CompanyConverter();
         }
 
-        public async Task<bool> AddCompanyAsync(CompanyViewModel company)
+        public async Task<bool> AddCompany(CompanyViewModel company)
         {
             // TODO validation
             Company companyTemp = _companyConverter.ToCompany(company.Company);
@@ -33,7 +33,7 @@ namespace SimpleCRM.App.Services
             return companyValid;
         }
 
-        public async Task DeleteCompanyAsync(int id)
+        public async Task DeleteCompany(int id)
         {
             if (await _companyRepository.ExistsAsync(id))
             {
@@ -41,7 +41,7 @@ namespace SimpleCRM.App.Services
             }
         }
 
-        public async Task<CompanyViewModel> GetCompanyAsync(int id)
+        public async Task<CompanyViewModel> FindCompany(int id)
         {
             if (!await _companyRepository.ExistsAsync(id))
             {
@@ -53,14 +53,14 @@ namespace SimpleCRM.App.Services
             return _companyConverter.ToCompanyViewModel(company);
         }
 
-        public async Task<CompanyListViewModel> GetCompanyListAsync()
+        public async Task<CompanyListViewModel> GetAllCompanies()
         {
             IEnumerable<Company> companies = await _companyRepository.GetListAsync();
 
             return _companyConverter.ToCompanyListViewModel(companies);
         }
 
-        public async Task<CompanyListViewModel> GetCompanyListSearchAsync(string search)
+        public async Task<CompanyListViewModel> CompanySearch(string search)
         {
             // TODO validation
             IEnumerable<Company> companies = await _companyRepository.GetListAsyncSearch(search);
@@ -68,7 +68,7 @@ namespace SimpleCRM.App.Services
             return _companyConverter.ToCompanyListViewModel(companies);
         }
 
-        public async Task<CompanyListViewModel> GetCompanyListSortAsync(string sort)
+        public async Task<CompanyListViewModel> CompanySort(string sort)
         {
             // TODO validation
             IEnumerable<Company> companies = await _companyRepository.GetListAsyncSort(sort);
@@ -76,7 +76,7 @@ namespace SimpleCRM.App.Services
             return _companyConverter.ToCompanyListViewModel(companies);
         }
 
-        public async Task UpdateCompanyAsync(int id, CompanyViewModel company)
+        public async Task UpdateCompany(int id, CompanyViewModel company)
         {
             // TODO validation
             Company companyTemp = _companyConverter.ToCompany(company.Company);

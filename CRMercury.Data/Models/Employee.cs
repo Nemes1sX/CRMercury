@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System.Collections.Generic;
-using CRMercury.Models;
+using CRMercury.Data.Models;
 
-namespace CRMercury.Models{
+namespace CRMercury.Data.Models{
 
     public enum Role : int {
         Admin, Ceo, Employee

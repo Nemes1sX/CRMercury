@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using CRMercury.Interfaces;
-using CRMercury.Models;
+using CRMercury.App.Interfaces;
+using CRMercury.App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -15,47 +15,59 @@ namespace CRMercury.Controllers
     [Route("api/[controller]")] 
     public class EmployeeController : ControllerBase
     {
-        private readonly IEmployee objemployee;
+        private readonly IEmployeeService _employeeService;
 
-        public EmployeeController(IEmployee _objemployee)
+        public EmployeeController(IEmployeeService employeeService)
         {
-            objemployee = _objemployee;
+            _employeeService = employeeService;
         }
 
         [HttpGet]
         [Route("Index")]
-        public IEnumerable<Employee> Index()
+        public async Task<IActionResult> Index()
         {
-            return objemployee.GetAllEmployees();
+             return Ok(await _employeeService.GetAllEmployees());
         }
 
         [HttpPost]
         [Route("Create")]
-        public int Create([FromBody] Employee employee)
-        {
-        
-            return objemployee.AddEmployee(employee);
+        public async Task<IActionResult>  Create(EmployeViewModel employee)
+        {     
+             bool success = await _empoyeeService.AddEmployee(employee);
+            if (success)
+                return Ok();
+            else
+                return BadRequest();
         }
 
         [HttpGet]
         [Route("Details/{id}")]
-        public Employee Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            return objemployee.GetEmployeeData(id);
+            var employee = await _empoyeeService.GetEmployeeData(id);
+
+            if (employee.Employee != null)
+                return Ok(employee);
+            else
+                return NotFound();
         }
 
         [HttpPut]
         [Route("Edit")]
-        public int Edit([FromBody]Employee employee)
+        public async Task<IActionResult>  Edit(int id, EmployeeViewModel employee)
         {
-            return objemployee.UpdateEmployee(employee);
+            await _empoyeeService.UpdateEmployee(id, employee);
+
+            return NoContent();
         }
 
         [HttpDelete]
         [Route("Delete/{id}")]
-        public int Delete(int id)
+        public async Task<IActionResult>  Delete(int id)
         {
-            return objemployee.DeleteEmployee(id);
+             await _empoyeeService.DeleteEmployee(id);
+
+            return NoContent();
         }
 
     }

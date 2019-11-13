@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using CRMercury.Interfaces;
-using CRMercury.Models;
+using CRMercury.App.Interfaces;
+using CRMercury.App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRMercury.Controllers{
@@ -12,41 +12,54 @@ namespace CRMercury.Controllers{
     [Route("api/[controller]")]
     public class TaskController : ControllerBase {
 
-        private readonly ITask obj;
+        private readonly ITaskService _taskService;
 
-        public TaskController(ITask _obj)
+        public TaskController(ITaskService taskService)
         {
-            obj = _obj;
+            _taskService = taskService;
         }
         [HttpGet]
         [Route("Index")]
-        public IEnumerable<Task> Index(){
+        public async Task<IActionResult> Index(){
 
-            return obj.GetAll();
+            return Ok(await _taskService.GetAllTasks());
         }
         [HttpPost]
         [Route("Create")]
-        public int Create ([FromBody] Task task)
+        public async Task<IActionResult> Create (TaskViewModel task)
         {
-            return obj.AddTask(task);
+             bool success = await _taskService.AddTask(task);
+            if (success)
+                return Ok();
+            else
+                return BadRequest();
         }
         [HttpGet]
         [Route("Details/{id}")]
-        public Task Employee(int id)
+        public async Task<IActionResult> FindTask(int id)
         {
-            return obj.FindTask(id); 
+            var task = await _taskService.FindTask(id);
+
+            if (employee.Employee != null)
+                return Ok(task);
+            else
+                return NotFound();
         }
         [HttpPut]
         [Route("Edit")]
-        public int Edit([FromBody]Task task)
+        public async Task<IActionResult> Edit(int id, TaskViewModel task)
         {
-            return obj.UpdateTask(task);
+             await _taskService.UpdateTask(id, task);
+
+            return NoContent();
         }
         [HttpDelete]
         [Route("Delete/{id}")]
-        public int Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return obj.DeleteTask(id);
+             await _taskService.DeleteTask(id);
+
+            return NoContent();
         }
     }
 

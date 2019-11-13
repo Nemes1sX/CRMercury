@@ -3,65 +3,87 @@ using System.Collections.Generic;
 using System.Linq;  
 using System.Threading.Tasks;  
 using Microsoft.AspNetCore.Mvc;   
-using CRMercury.Models;
-using CRMercury.Interfaces;
+using CRMercury.App.Interfaces;
+using CRMercury.App.ViewModels;
 
 namespace CRMercury.Controllers{
-    [ApiController]
     [Route("api/[controller]")] 
+    [ApiController]
     public class CompanyController : ControllerBase {
 
-          private readonly ICompany obj;
+          private readonly ICompanyService _companyService;
 
-        public CompanyController(ICompany _obj)
+        public CompanyController(ICompanyService companyService)
         {
-            obj = _obj;
+            _companyService = companyService;
         }
       
 
         [HttpGet]  
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [Route("Index")]  
-        public IEnumerable<Company> Index()  
+        public async Task<IActionResult> Index()  
         {  
-            return obj.GetAll();  
+            return Ok(await _companyService.GetAllCompanies());
         }  
   
         [HttpPost]  
         [Route("Create")]  
-        public int Create([FromBody] Company company)  
+        public async Task<IActionResult> Create(CompanyViewModel company)  
         {  
-            return obj.AddCompany(company);  
+            bool success = await _companyService.AddCompany(company);
+            if(success)
+                return Ok();
+            else
+                return BadRequest();
         }  
 
         [HttpGet]  
         [Route("Details/{id}")]  
-        public Company Details(int id)  
+        public async Task<IActionResult> Details(int id)  
         {  
-            return obj.FindCompany(id);  
+            var company = await _comapnyService.FindCompany(id);
+
+            if(company.Company != null)
+                return Ok(company);
+            else
+                return BadRequest();
         }  
   
         [HttpPut]  
         [Route("Edit")]  
-        public int Edit([FromBody]Company company)  
+        public async Task<IActionResult> Edit(int id, CompanyViewModel company)  
         {  
-            return obj.UpdateCompany(company);  
+            await _employeeService.UpdateCompany(id, company);
+
+            return NoContent();
+
         }  
-  
         [HttpDelete]  
         [Route("Delete/{id}")]  
-        public int Delete(int id)  
+        public async Task<IActionResult> Delete(int id)  
         {  
-            return obj.DeleteCompany(id);  
+            await _companyService.DeleteCompany(id);
+
+            return NoContent();
         }
         [HttpGet]
         [Route("Index/Sort/{sort}")]
         public IEnumerable<Company> Sort(string sort){
-            return obj.Sort(sort);
+             IEnumerable<Company> companies = await _companyRepository.CompanySort(sort);
+
+            return _companyConverter.ToCompanyListViewModel(companies);
+
         }
         [HttpGet]
         [Route("Index/Search/{key}")]
         public IEnumerable<Company> Search(string key){
-            return obj.Search(key);
+            
+             IEnumerable<Company> companies = await _companyRepository.CompanySearch(search);
+
+            return _companyConverter.ToCompanyListViewModel(companies);
+
         }
     }
 }

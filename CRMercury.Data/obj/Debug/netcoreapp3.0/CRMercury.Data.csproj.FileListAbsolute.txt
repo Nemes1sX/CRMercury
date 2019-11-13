@@ -1,0 +1,3 @@
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.csprojAssemblyReference.cache
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.AssemblyInfoInputs.cache
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.AssemblyInfo.cs

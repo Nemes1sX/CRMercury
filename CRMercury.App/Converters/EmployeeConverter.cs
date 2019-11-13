@@ -23,6 +23,7 @@ namespace CRMercury.App.Converters
         {
             EmployeeDto employeeDto = new EmployeeDto
             {
+                id = employee.id,
                 fullname = employee.fullname,
                 password = employee.password,
                 email = employee.email,

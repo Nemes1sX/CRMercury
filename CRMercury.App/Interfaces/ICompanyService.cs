@@ -9,13 +9,13 @@ namespace CRMercury.App.Services
 {
 	public class ICompanyService
     {
-        Task<CompanyListViewModel> GetAll();
+        Task<CompanyListViewModel> GetAllCompanies();
         Task<bool> AddCompany(CompanyViewModel company);
         Task UpdateCompany(CompanyViewModel company, int id);
         Task<CompanyViewModel> FindCompany(int id);
         Task DeleteCompany(int id);
-        Task<CompanyListViewModel> Sort(string sort);
-        Task<CompanyListViewModel> Search(string key);
+        Task<CompanyListViewModel> CompanySort(string sort);
+        Task<CompanyListViewModel> CompanySearch(string key);
     }
 }
 

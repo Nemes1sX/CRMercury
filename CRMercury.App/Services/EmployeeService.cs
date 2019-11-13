@@ -24,14 +24,14 @@ namespace CRMercury.App.Services
         }
 
 
-        public async Task<EmployeeListViewModel> GetEmployeeListAsync()
+        public async Task<EmployeeListViewModel> GetAllEmployees()
         {
             IEnumerable<Employee> employees = await _employeeRepository.GetEmployeeListAsync();
 
             return _employeeConverter.ToEmployeeListViewModel(employees);
         }
 
-        public async Task<EmployeeViewModel> GetEmployeeAsync(int id)
+        public async Task<EmployeeViewModel> GetEmployeeData(int id)
         {
             if (!await _employeeRepository.ExistsAsync(id))
             {
@@ -43,7 +43,7 @@ namespace CRMercury.App.Services
             return _employeeConverter.ToEmployeeViewModel(employee);
         }
 
-        public async Task<bool> AddEmployeeAsync(EmployeeViewModel employee)
+        public async Task<bool> AddEmployee(EmployeeViewModel employee)
         {
             Employee employeeTemp = _employeeConverter.ToEmployee(employee.Employee);
             bool employeeValid = EmployeeValidator.isValid(employeeTemp);
@@ -54,7 +54,7 @@ namespace CRMercury.App.Services
             return employeeValid;
         }
 
-        public async Task DeleteEmployeeAsync(int id)
+        public async Task DeleteEmployee(int id)
         {
             if (await _employeeRepository.ExistsAsync(id))
             {
@@ -62,7 +62,7 @@ namespace CRMercury.App.Services
             }
         }
 
-        public async Task UpdateEmployeeAsync(int id, EmployeeViewModel employee)
+        public async Task UpdateEmployee(int id, EmployeeViewModel employee)
         {
             Employee employeeTemp = _employeeConverter.ToEmployee(employee.Employee);
             if (EmployeeValidator.isValid(employeeTemp) && (await _employeeRepository.ExistsAsync(id)))
