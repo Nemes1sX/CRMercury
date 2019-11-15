@@ -12,12 +12,12 @@ namespace CRMerucry.App.Converters
         {
             Company company = new Company
             {
-                Id = companyDto.Id,
-                Name = companyDto.Name,
-                Ceoname = companyDto.Ceoname,
-                Website = companyDto.Website,
-                Email = companyDto.Email,
-                Phone = companyDto.Phone,
+                id = companyDto.Id,
+                name = companyDto.Name,
+                ceoname = companyDto.Ceoname,
+                website = companyDto.Website,
+                email = companyDto.Email,
+                phone = companyDto.Phone,
                 Status = companyDto.Status,
             };
             return company;

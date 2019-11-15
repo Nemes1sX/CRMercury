@@ -1,14 +1,14 @@
-using SimpleCRM.App.Converters;
-using SimpleCRM.App.Interfaces;
-using SimpleCRM.App.ViewModels;
-using SimpleCRM.Data.Interfaces;
-using SimpleCRM.Data.Models;
+using CRMercury.App.Interfaces;
+using CRMercury.App.ViewModels;
+using CRMercury.Data.Interfaces;
+using CRMercury.Data.Models;
+using CRMerucry.App.Converters;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleCRM.App.Services
+namespace CRMercury.App.Services
 {
     public class CompanyService : ICompanyService
     {
@@ -21,7 +21,7 @@ namespace SimpleCRM.App.Services
             _companyConverter = new CompanyConverter();
         }
 
-        public async Task<bool> AddCompany(CompanyViewModel company)
+        public async System.Threading.Tasks.Task<bool> AddCompany(CompanyViewModel company)
         {
             // TODO validation
             Company companyTemp = _companyConverter.ToCompany(company.Company);
@@ -33,7 +33,7 @@ namespace SimpleCRM.App.Services
             return companyValid;
         }
 
-        public async Task DeleteCompany(int id)
+        public async System.Threading.Tasks.Task DeleteCompany(int id)
         {
             if (await _companyRepository.ExistsAsync(id))
             {
@@ -41,7 +41,7 @@ namespace SimpleCRM.App.Services
             }
         }
 
-        public async Task<CompanyViewModel> FindCompany(int id)
+        public async System.Threading.Tasks.Task<CompanyViewModel> FindCompany(int id)
         {
             if (!await _companyRepository.ExistsAsync(id))
             {
@@ -53,14 +53,14 @@ namespace SimpleCRM.App.Services
             return _companyConverter.ToCompanyViewModel(company);
         }
 
-        public async Task<CompanyListViewModel> GetAllCompanies()
+        public async System.Threading.Tasks.Task<CompanyListViewModel> GetAllCompanies()
         {
             IEnumerable<Company> companies = await _companyRepository.GetListAsync();
 
             return _companyConverter.ToCompanyListViewModel(companies);
         }
 
-        public async Task<CompanyListViewModel> CompanySearch(string search)
+        public async System.Threading.Tasks.Task<CompanyListViewModel> CompanySearch(string search)
         {
             // TODO validation
             IEnumerable<Company> companies = await _companyRepository.GetListAsyncSearch(search);
@@ -68,7 +68,7 @@ namespace SimpleCRM.App.Services
             return _companyConverter.ToCompanyListViewModel(companies);
         }
 
-        public async Task<CompanyListViewModel> CompanySort(string sort)
+        public async System.Threading.Tasks.Task<CompanyListViewModel> CompanySort(string sort)
         {
             // TODO validation
             IEnumerable<Company> companies = await _companyRepository.GetListAsyncSort(sort);
@@ -76,14 +76,15 @@ namespace SimpleCRM.App.Services
             return _companyConverter.ToCompanyListViewModel(companies);
         }
 
-        public async Task UpdateCompany(int id, CompanyViewModel company)
+        public async System.Threading.Tasks.Task UpdateCompany(int id, CompanyViewModel company)
         {
             // TODO validation
             Company companyTemp = _companyConverter.ToCompany(company.Company);
             if (await _companyRepository.ExistsAsync(id))
             {
-                companyTemp.Id = id;
+                companyTemp.id = id;
                 await _companyRepository.UpdateAsync(companyTemp);
             }
         }
     }
+}

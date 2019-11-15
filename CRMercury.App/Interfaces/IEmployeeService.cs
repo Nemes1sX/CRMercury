@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace CRMercury.Interfaces
+namespace CRMercury.App.Interfaces
 {
-    public interface IEmployee
+    public interface IEmployeeService
     {
-        Task<EmployeeListViewModel> GetAllEmployees();
-        Task<bool> AddEmployee(EmployeeViewModel employee);
-        Task UpdateEmployee(EmployeeViewModel employee, int id);
+        System.Threading.Tasks.Task<EmployeeListViewModel> GetAllEmployees();
+        System.Threading.Tasks.Task<bool> AddEmployee(EmployeeViewModel employee);
+        System.Threading.Tasks.Task UpdateEmployee(int id, EmployeeViewModel employee);
         Task<EmployeeViewModel> GetEmployeeData(int id);
-        Task DeleteEmployee(int id);
+        System.Threading.Tasks.Task DeleteEmployee(int id);
     }
 }

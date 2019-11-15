@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CRMecury.Data.Repositories;
 
 namespace CRMercury.Data.Repositories
 {
@@ -23,8 +24,8 @@ namespace CRMercury.Data.Repositories
 
             if (!String.IsNullOrEmpty(search))
             {
-                query = query.Where(c => c.Name.Contains(search)
-                    || c.Ceoname.Contains(search));
+                query = query.Where(c => c.name.Contains(search)
+                    || c.ceoname.Contains(search));
             }
             return await query.ToListAsync();
         }
@@ -35,16 +36,16 @@ namespace CRMercury.Data.Repositories
             switch (sort)
             {
                 case "name":
-                    query = query.OrderBy(c => c.Name);
+                    query = query.OrderBy(c => c.name);
                     break;
                 case "name_desc":
-                    query = query.OrderByDescending(c => c.Name);
+                    query = query.OrderByDescending(c => c.name);
                     break;
                 case "ceoname":
-                    query = query.OrderBy(c => c.Ceoname);
+                    query = query.OrderBy(c => c.ceoname);
                     break;
                 case "ceoname_desc":
-                    query = query.OrderByDescending(c => c.Ceoname);
+                    query = query.OrderByDescending(c => c.ceoname);
                     break;
             }
             return await query.ToListAsync();

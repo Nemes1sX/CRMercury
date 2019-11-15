@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using CRMercury.Models;
+using CRMercury.Data.Context;
+using CRMercury.Data.Models;
 
-namespace CRMercury.Models
+
+namespace CRMercury.Data.Context
 {
     public class CRMercuryContextSeed
     {

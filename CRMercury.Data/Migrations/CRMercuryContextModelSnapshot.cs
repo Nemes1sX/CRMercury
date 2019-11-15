@@ -5,9 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using CRMercury.Models;
+using CRMercury.Data.Models;
+using CRMercury.Data.Context;
 
-namespace megaprojektas.Migrations
+
+namespace CRMercury.Data.Migrations
 {
     [DbContext(typeof(CRMercuryContext))]
     partial class CRMercuryContextModelSnapshot : ModelSnapshot

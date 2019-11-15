@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CRMercury.App.Services
 {
-    public class EmployeeService : IEmpoyeeService
+    public class EmployeeService : IEmployeeService
     {
         private IEmployeeRepository _employeeRepository;
         private EmployeeConverter _employeeConverter;
@@ -26,7 +26,7 @@ namespace CRMercury.App.Services
 
         public async Task<EmployeeListViewModel> GetAllEmployees()
         {
-            IEnumerable<Employee> employees = await _employeeRepository.GetEmployeeListAsync();
+            IEnumerable<Employee> employees = await _employeeRepository.GetAllEmployees();
 
             return _employeeConverter.ToEmployeeListViewModel(employees);
         }
@@ -38,7 +38,7 @@ namespace CRMercury.App.Services
                 return new EmployeeViewModel();
             }
 
-            Employee employee = await _employeeRepository.GetEmployeeAsync(id);
+            Employee employee = await _employeeRepository.GetEmployeeData(id);
 
             return _employeeConverter.ToEmployeeViewModel(employee);
         }
@@ -46,7 +46,7 @@ namespace CRMercury.App.Services
         public async Task<bool> AddEmployee(EmployeeViewModel employee)
         {
             Employee employeeTemp = _employeeConverter.ToEmployee(employee.Employee);
-            bool employeeValid = EmployeeValidator.isValid(employeeTemp);
+            bool employeeValid = true;
             if (employeeValid)
             {
                 await _employeeRepository.AddAsync(employeeTemp);
@@ -54,7 +54,7 @@ namespace CRMercury.App.Services
             return employeeValid;
         }
 
-        public async Task DeleteEmployee(int id)
+        public async System.Threading.Tasks.Task DeleteEmployee(int id)
         {
             if (await _employeeRepository.ExistsAsync(id))
             {
@@ -62,12 +62,12 @@ namespace CRMercury.App.Services
             }
         }
 
-        public async Task UpdateEmployee(int id, EmployeeViewModel employee)
+        public async System.Threading.Tasks.Task UpdateEmployee(int id, EmployeeViewModel employee)
         {
             Employee employeeTemp = _employeeConverter.ToEmployee(employee.Employee);
-            if (EmployeeValidator.isValid(employeeTemp) && (await _employeeRepository.ExistsAsync(id)))
+            if ((await _employeeRepository.ExistsAsync(id)))
             {
-                employeeTemp.Id = id;
+                employeeTemp.id = id;
                 await _employeeRepository.UpdateAsync(employeeTemp);
             }
         }

@@ -1,0 +1,3 @@
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\obj\Debug\netcoreapp3.0\CRMercury.Ioc.csprojAssemblyReference.cache
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\obj\Debug\netcoreapp3.0\CRMercury.Ioc.AssemblyInfoInputs.cache
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\obj\Debug\netcoreapp3.0\CRMercury.Ioc.AssemblyInfo.cs

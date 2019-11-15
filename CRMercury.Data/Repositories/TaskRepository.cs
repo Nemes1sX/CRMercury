@@ -6,28 +6,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CRMecury.Data.Repositories;
 using System.Threading.Tasks;
 
 namespace CRMercury.Data.Repositories 
-{ 
-    public class TaskRepository : GenericRepository<Task>, ITaskRepository 
+{
+    public class TaskRepository : GenericRepository<CRMercury.Data.Models.Task>, ITaskRepository
     {
         public TaskRepository(CRMercuryContext context)
             : base(context)
         {
         }
-        private Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Employee, Role> TaskQuery()
+     
+        public async System.Threading.Tasks.Task<IEnumerable<CRMercury.Data.Models.Task>> GetAllTasks()
         {
-            return _context.Tasks.Include(e => e.Employee).Include(c => c.Company)
-                .AsNoTracking();
+            return await _context.Tasks.AsNoTracking().Include(e => e.Employee).Include(c => c.Company).ToListAsync();
         }
-        public async Task<IEnumerable<Task>> GetAllTasks()
+        public async System.Threading.Tasks.Task<CRMercury.Data.Models.Task> FindTask(int id)
         {
-            return await this.TaskQuery().ToListAysnc();
-        }
-        public async Task<Task> FindTask(int id)
-        {
-            return await this.TaskQuery().FirstOrDefaultAsync(t => t.id == id);
+            return await _context.Tasks.SingleOrDefaultAsync(t => t.id == id);
         }
     } 
 }

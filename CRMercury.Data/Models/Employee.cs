@@ -1,12 +1,12 @@
 
-using Microsoft.AspNetCore.Identity;
 using System;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System.Collections.Generic;
 using CRMercury.Data.Models;
+using CRMercury.Data.Interfaces;
+
 
 namespace CRMercury.Data.Models{
 
@@ -14,7 +14,7 @@ namespace CRMercury.Data.Models{
         Admin, Ceo, Employee
     }
 
-    public class Employee {
+    public class Employee  : IEntity {
 
         public int id {get; set; }
 

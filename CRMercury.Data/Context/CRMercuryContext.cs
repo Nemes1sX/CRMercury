@@ -2,13 +2,12 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
+//using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using CRMercury.Data.Models;
 
 
- namespace CRMercury.Data.Models {
+ namespace CRMercury.Data.Context {
   public class CRMercuryContext : DbContext{
          public CRMercuryContext(DbContextOptions<CRMercuryContext> options)
             : base(options)

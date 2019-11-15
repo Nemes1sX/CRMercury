@@ -4,10 +4,10 @@
     "\\CRMercury.Data",
     "\\CRMercury.Data\\Context",
     "\\CRMercury.Data\\Interfaces",
+    "\\CRMercury.Data\\Migrations",
     "\\CRMercury.Data\\Models",
-    "\\CRMercury.Data\\Repositories",
-    "\\CRMercury.Web\\Controllers"
+    "\\CRMercury.Data\\Repositories"
   ],
-  "SelectedNode": "\\CRMercury.Data\\Models\\Employee.cs",
+  "SelectedNode": "\\CRMercury.Data",
   "PreviewInSolutionExplorer": false
 }

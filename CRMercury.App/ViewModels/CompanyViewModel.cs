@@ -1,9 +1,9 @@
-using SimpleCRM.App.Dto;
+using CRMercury.App.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleCRM.App.ViewModels
+namespace CRMercury.App.ViewModels
 {
     public class CompanyViewModel
     {

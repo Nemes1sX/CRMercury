@@ -1,3 +1,10 @@
 C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.csprojAssemblyReference.cache
 C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.AssemblyInfoInputs.cache
 C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.AssemblyInfo.cs
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.csprojAssemblyReference.cache
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.AssemblyInfoInputs.cache
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.AssemblyInfo.cs
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\bin\Debug\netcoreapp3.0\CRMercury.Data.deps.json
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\bin\Debug\netcoreapp3.0\CRMercury.Data.runtimeconfig.json
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\bin\Debug\netcoreapp3.0\CRMercury.Data.runtimeconfig.dev.json
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\bin\Debug\netcoreapp3.0\CRMercury.Data.dll

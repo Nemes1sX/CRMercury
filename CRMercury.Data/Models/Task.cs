@@ -1,11 +1,10 @@
 using System;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System.Collections.Generic;
 using CRMercury.Data.Models;
-
+using CRMercury.Data.Interfaces;
 
 
 namespace CRMercury.Data.Models {
@@ -14,7 +13,7 @@ public enum State : int{
     Started, Planned, Executed, Delayed, Completed
 }
 
-public class Task{
+public class Task : IEntity{
     
     public int id {get; set;}
 

@@ -12,9 +12,9 @@ namespace CRMecury.Data.Repositories
     public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class, IEntity
     {
-        protected readonly SimpleCRMContext _context;
+        protected readonly CRMercuryContext _context;
 
-        public GenericRepository(SimpleCRMContext context)
+        public GenericRepository(CRMercuryContext context)
         {
             _context = context;
         }
@@ -30,7 +30,7 @@ namespace CRMecury.Data.Repositories
         {
             return await _context.Set<TEntity>()
                 .AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == id);
+                .FirstOrDefaultAsync(e => e.id == id);
         }
 
         public IQueryable<TEntity> GetQueryable()
@@ -59,7 +59,7 @@ namespace CRMecury.Data.Repositories
 
         public async Task<bool> ExistsAsync(int id)
         {
-            return await _context.Set<TEntity>().AnyAsync(e => e.Id == id);
+            return await _context.Set<TEntity>().AnyAsync(e => e.id == id);
         }
 
     }

@@ -1,15 +1,16 @@
 using System;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System.Collections.Generic;
-using CRMercury.Models;
+using CRMercury.Data.Models;
+using CRMercury.Data.Interfaces;
 
-namespace CRMercury.Models{
+
+namespace CRMercury.Data.Models{
 
 
-    public class Company
+    public class Company : IEntity
 {
      public int id { get; set; }
     
