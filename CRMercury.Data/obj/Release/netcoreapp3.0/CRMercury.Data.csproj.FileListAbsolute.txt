@@ -8,3 +8,13 @@ C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\bin\Release\netcoreapp3.0\CR
 C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\bin\Release\netcoreapp3.0\CRMercury.Data.pdb
 C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\obj\Release\netcoreapp3.0\CRMercury.Data.dll
 C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\obj\Release\netcoreapp3.0\CRMercury.Data.pdb
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\bin\Release\netcoreapp3.0\CRMercury.Data.deps.json
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\bin\Release\netcoreapp3.0\CRMercury.Data.runtimeconfig.json
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\bin\Release\netcoreapp3.0\CRMercury.Data.runtimeconfig.dev.json
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\bin\Release\netcoreapp3.0\CRMercury.Data.dll
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\bin\Release\netcoreapp3.0\CRMercury.Data.pdb
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Release\netcoreapp3.0\CRMercury.Data.csprojAssemblyReference.cache
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Release\netcoreapp3.0\CRMercury.Data.AssemblyInfoInputs.cache
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Release\netcoreapp3.0\CRMercury.Data.AssemblyInfo.cs
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Release\netcoreapp3.0\CRMercury.Data.dll
+C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Release\netcoreapp3.0\CRMercury.Data.pdb

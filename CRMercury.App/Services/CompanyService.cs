@@ -53,14 +53,14 @@ namespace CRMercury.App.Services
             return _companyConverter.ToCompanyViewModel(company);
         }
 
-        public async System.Threading.Tasks.Task<CompanyListViewModel> GetAllCompanies()
+        public async Task<CompanyListViewModel> GetAllCompanies()
         {
             IEnumerable<Company> companies = await _companyRepository.GetListAsync();
 
             return _companyConverter.ToCompanyListViewModel(companies);
         }
 
-        public async System.Threading.Tasks.Task<CompanyListViewModel> CompanySearch(string search)
+        public async Task<CompanyListViewModel> CompanySearch(string search)
         {
             // TODO validation
             IEnumerable<Company> companies = await _companyRepository.GetListAsyncSearch(search);
@@ -68,7 +68,7 @@ namespace CRMercury.App.Services
             return _companyConverter.ToCompanyListViewModel(companies);
         }
 
-        public async System.Threading.Tasks.Task<CompanyListViewModel> CompanySort(string sort)
+        public async Task<CompanyListViewModel> CompanySort(string sort)
         {
             // TODO validation
             IEnumerable<Company> companies = await _companyRepository.GetListAsyncSort(sort);
@@ -76,7 +76,7 @@ namespace CRMercury.App.Services
             return _companyConverter.ToCompanyListViewModel(companies);
         }
 
-        public async System.Threading.Tasks.Task UpdateCompany(int id, CompanyViewModel company)
+        public async Task UpdateCompany(int id, CompanyViewModel company)
         {
             // TODO validation
             Company companyTemp = _companyConverter.ToCompany(company.Company);

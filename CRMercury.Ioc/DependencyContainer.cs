@@ -24,8 +24,8 @@ namespace CRMercury.Ioc
             service.AddScoped<IEmployeeService, EmployeeService>();
             service.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
-            service.AddScoped<ITaskService, TaskService>();
-            service.AddScoped<ITaskRepository, TaskRepository>();
+            service.AddScoped<IDailyTaskService, DailyTaskService>();
+            service.AddScoped<IDailyTaskRepository, DailyTaskRepository>();
         }
     }
 }

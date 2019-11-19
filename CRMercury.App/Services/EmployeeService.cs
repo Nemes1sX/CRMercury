@@ -26,7 +26,7 @@ namespace CRMercury.App.Services
 
         public async Task<EmployeeListViewModel> GetAllEmployees()
         {
-            IEnumerable<Employee> employees = await _employeeRepository.GetAllEmployees();
+            IEnumerable<Employee> employees = await _employeeRepository.GetListAsync();
 
             return _employeeConverter.ToEmployeeListViewModel(employees);
         }
@@ -38,7 +38,7 @@ namespace CRMercury.App.Services
                 return new EmployeeViewModel();
             }
 
-            Employee employee = await _employeeRepository.GetEmployeeData(id);
+            Employee employee = await _employeeRepository.GetAsync(id);
 
             return _employeeConverter.ToEmployeeViewModel(employee);
         }

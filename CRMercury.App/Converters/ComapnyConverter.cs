@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using CRMercury.App.Dto;
 using CRMercury.App.ViewModels;
 using CRMercury.Data.Models;
+using CRMercury.App.Converters;
 
 namespace CRMerucry.App.Converters
 {
@@ -18,7 +19,7 @@ namespace CRMerucry.App.Converters
                 website = companyDto.Website,
                 email = companyDto.Email,
                 phone = companyDto.Phone,
-                Status = companyDto.Status,
+                status = companyDto.Status,
             };
             return company;
         }
@@ -27,13 +28,13 @@ namespace CRMerucry.App.Converters
         {
             CompanyDto companyDto = new CompanyDto
             {
-                Id = company.Id,
-                Name = company.Name,
-                Ceoname = company.Ceoname,
-                Website = company.Website,
-                Email = company.Email,
-                Phone = company.Phone,
-                Status = company.Status,
+                Id = company.id,
+                Name = company.name,
+                Ceoname = company.ceoname,
+                Website = company.website,
+                Email = company.email,
+                Phone = company.phone,
+                Status = company.status,
             };
             return companyDto;
         }

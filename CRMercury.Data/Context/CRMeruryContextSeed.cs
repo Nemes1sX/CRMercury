@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using CRMercury.Data.Context;
 using CRMercury.Data.Models;
 
 
@@ -14,7 +8,7 @@ namespace CRMercury.Data.Context
         public static void Initialize(CRMercuryContext context)
         {
             context.Database.EnsureCreated();
-			AddEmployees(context);
+            AddEmployees(context);
         }
         private static void AddEmployees(CRMercuryContext context)
         {

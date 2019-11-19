@@ -10,10 +10,10 @@ namespace CRMercury.App.Interfaces
 {
     public interface IEmployeeService
     {
-        System.Threading.Tasks.Task<EmployeeListViewModel> GetAllEmployees();
-        System.Threading.Tasks.Task<bool> AddEmployee(EmployeeViewModel employee);
-        System.Threading.Tasks.Task UpdateEmployee(int id, EmployeeViewModel employee);
+        Task<EmployeeListViewModel> GetAllEmployees();
+        Task<bool> AddEmployee(EmployeeViewModel employee);
+        Task UpdateEmployee(int id, EmployeeViewModel employee);
         Task<EmployeeViewModel> GetEmployeeData(int id);
-        System.Threading.Tasks.Task DeleteEmployee(int id);
+        Task DeleteEmployee(int id);
     }
 }

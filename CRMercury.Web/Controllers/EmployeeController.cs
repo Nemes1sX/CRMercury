@@ -31,9 +31,9 @@ namespace CRMercury.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public async Task<IActionResult>  Create(EmployeViewModel employee)
+        public async Task<IActionResult>  Create(EmployeeViewModel employee)
         {     
-             bool success = await _empoyeeService.AddEmployee(employee);
+             bool success = await _employeeService.AddEmployee(employee);
             if (success)
                 return Ok();
             else
@@ -44,7 +44,7 @@ namespace CRMercury.Controllers
         [Route("Details/{id}")]
         public async Task<IActionResult> Details(int id)
         {
-            var employee = await _empoyeeService.GetEmployeeData(id);
+            var employee = await _employeeService.GetEmployeeData(id);
 
             if (employee.Employee != null)
                 return Ok(employee);
@@ -56,7 +56,7 @@ namespace CRMercury.Controllers
         [Route("Edit")]
         public async Task<IActionResult>  Edit(int id, EmployeeViewModel employee)
         {
-            await _empoyeeService.UpdateEmployee(id, employee);
+            await _employeeService.UpdateEmployee(id, employee);
 
             return NoContent();
         }
@@ -65,7 +65,7 @@ namespace CRMercury.Controllers
         [Route("Delete/{id}")]
         public async Task<IActionResult>  Delete(int id)
         {
-             await _empoyeeService.DeleteEmployee(id);
+             await _employeeService.DeleteEmployee(id);
 
             return NoContent();
         }

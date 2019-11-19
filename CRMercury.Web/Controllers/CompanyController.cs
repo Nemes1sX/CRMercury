@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;   
 using CRMercury.App.Interfaces;
 using CRMercury.App.ViewModels;
+using CRMercury.App.Converters;
+using CRMercury.App.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace CRMercury.Controllers{
     [Route("api/[controller]")] 
     [ApiController]
     public class CompanyController : ControllerBase {
 
-          private readonly ICompanyService _companyService;
+          private ICompanyService _companyService;
 
         public CompanyController(ICompanyService companyService)
         {
@@ -43,7 +46,7 @@ namespace CRMercury.Controllers{
         [Route("Details/{id}")]  
         public async Task<IActionResult> Details(int id)  
         {  
-            var company = await _comapnyService.FindCompany(id);
+            var company = await _companyService.FindCompany(id);
 
             if(company.Company != null)
                 return Ok(company);
@@ -55,7 +58,7 @@ namespace CRMercury.Controllers{
         [Route("Edit")]  
         public async Task<IActionResult> Edit(int id, CompanyViewModel company)  
         {  
-            await _employeeService.UpdateCompany(id, company);
+            await _companyService.UpdateCompany(id, company);
 
             return NoContent();
 
@@ -70,19 +73,18 @@ namespace CRMercury.Controllers{
         }
         [HttpGet]
         [Route("Index/Sort/{sort}")]
-        public IEnumerable<Company> Sort(string sort){
-             IEnumerable<Company> companies = await _companyRepository.CompanySort(sort);
+        public async Task<IActionResult> Sort(string sort){
+            return Ok(await _companyService.CompanySort(sort));
 
-            return _companyConverter.ToCompanyListViewModel(companies);
 
         }
         [HttpGet]
         [Route("Index/Search/{key}")]
-        public IEnumerable<Company> Search(string key){
-            
-             IEnumerable<Company> companies = await _companyRepository.CompanySearch(search);
+        public async Task<IActionResult> Search(string key){
 
-            return _companyConverter.ToCompanyListViewModel(companies);
+            return Ok(await _companyService.CompanySearch(key));
+
+             
 
         }
     }

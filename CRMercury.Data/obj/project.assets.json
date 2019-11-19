@@ -1938,7 +1938,7 @@
       ]
     },
     "System.Collections.NonGeneric/4.3.0": {
-      "sha512": "prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
+      "sha512": "LE/oChpRvkSi3U25u0KnJcI44JeDZ1QJCyN4qFDx2uusEypdqR24w7lKYw21eYe5esuCBuc862wRmpF63Yy1KQ==",
       "type": "package",
       "path": "system.collections.nongeneric/4.3.0",
       "files": [
@@ -2199,7 +2199,7 @@
       ]
     },
     "System.ComponentModel.TypeConverter/4.3.0": {
-      "sha512": "16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
+      "sha512": "HZiP0DwTHJ+C+rdFqP47nBYUh5283kcwXIGY2zOVVhsJmVI/2tYiX2zNRdjRQRHsTox58Ydkec6h0pWSh8wAsw==",
       "type": "package",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "files": [
@@ -4828,23 +4828,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\N3m3s1s\\.nuget\\packages\\": {},
+    "C:\\Users\\Boss\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\N3m3s1s\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Boss\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj",
       "projectName": "CRMercury.Data",
-      "projectPath": "C:\\Users\\N3m3s1s\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj",
-      "packagesPath": "C:\\Users\\N3m3s1s\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\N3m3s1s\\Documents\\CRMercury\\CRMercury.Data\\obj\\",
+      "projectPath": "C:\\Users\\Boss\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj",
+      "packagesPath": "C:\\Users\\Boss\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Boss\\Documents\\CRMercury\\CRMercury.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\N3m3s1s\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Boss\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

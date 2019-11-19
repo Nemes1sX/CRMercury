@@ -1,29 +1,28 @@
-using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-using System.Linq;
 //using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
 using CRMercury.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 
- namespace CRMercury.Data.Context {
-  public class CRMercuryContext : DbContext{
-         public CRMercuryContext(DbContextOptions<CRMercuryContext> options)
-            : base(options)
+namespace CRMercury.Data.Context
+{
+    public class CRMercuryContext : DbContext
+    {
+        public CRMercuryContext(DbContextOptions<CRMercuryContext> options)
+           : base(options)
         { }
-         public DbSet<Company> Companies { get; set; }
-         public DbSet<Employee> Employees {get; set;}
-         public DbSet<Task> Tasks {get; set;}
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<DailyTask> Tasks { get; set; }
 
-         protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Company>().ToTable("Company");
             modelBuilder.Entity<Employee>().ToTable("Employee");
-            modelBuilder.Entity<Task>().ToTable("Task");
+            modelBuilder.Entity<DailyTask>().ToTable("Task");
             Relations(modelBuilder);
         }
-        private void Relations(ModelBuilder modelBuilder){
+        private void Relations(ModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Employee>()
             .HasMany(c => c.Tasks)
             .WithOne(e => e.Employee)
@@ -33,6 +32,6 @@ using CRMercury.Data.Models;
             .WithOne(e => e.Company)
             .OnDelete(DeleteBehavior.Cascade);
         }
-     }
+    }
 
- }     
+}

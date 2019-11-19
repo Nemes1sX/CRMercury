@@ -37,11 +37,9 @@ namespace CRMercury
         {
 
             
-            services.AddTransient<ICompany, CompanyDataAccessLayer>();
-            services.AddTransient<IEmployee, EmployeeDataAccessLayer>();
-            services.AddTransient<ITask, TasksDataAccessLayer>();
+          
 
-            services.Configure<UserSettings>(Configuration.GetSection("ApplicationSettings"));
+            //services.Configure<UserSettings>(Configuration.GetSection("ApplicationSettings"));
 
             services.AddDbContext<CRMercuryContext>(options =>
                 options.UseSqlServer(
@@ -73,9 +71,9 @@ namespace CRMercury
                 );
                 });
 
-                   services.AddDefaultIdentity<UserModel>()
+                 /*  services.AddDefaultIdentity<UserModel>()
                 .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<CRMercuryContext>();
+                .AddEntityFrameworkStores<CRMercuryContext>();*/
 
 
             services.Configure<IdentityOptions>(options =>
@@ -192,7 +190,7 @@ namespace CRMercury
         }
          public static void RegisterServices(IServiceCollection services)
         {
-            DependencyContainer.RegisterServices(services);
+            DependecyContainer.RegisterServices(services);
         }
     }
 }

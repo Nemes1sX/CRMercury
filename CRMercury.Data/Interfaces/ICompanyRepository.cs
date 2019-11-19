@@ -1,9 +1,6 @@
 using CRMercury.Data.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using CRMercury.Data.Interfaces;
 
 namespace CRMercury.Data.Interfaces
 {

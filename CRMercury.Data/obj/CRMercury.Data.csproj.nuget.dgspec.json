@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\N3m3s1s\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj": {}
+    "C:\\Users\\Boss\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\N3m3s1s\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj": {
+    "C:\\Users\\Boss\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\N3m3s1s\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Boss\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj",
         "projectName": "CRMercury.Data",
-        "projectPath": "C:\\Users\\N3m3s1s\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj",
-        "packagesPath": "C:\\Users\\N3m3s1s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\N3m3s1s\\Documents\\CRMercury\\CRMercury.Data\\obj\\",
+        "projectPath": "C:\\Users\\Boss\\Documents\\CRMercury\\CRMercury.Data\\CRMercury.Data.csproj",
+        "packagesPath": "C:\\Users\\Boss\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Boss\\Documents\\CRMercury\\CRMercury.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\N3m3s1s\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Boss\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

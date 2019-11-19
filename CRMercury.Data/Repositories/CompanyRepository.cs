@@ -1,13 +1,12 @@
-using Microsoft.EntityFrameworkCore;
+using CRMecury.Data.Repositories;
 using CRMercury.Data.Context;
 using CRMercury.Data.Interfaces;
 using CRMercury.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using CRMecury.Data.Repositories;
 
 namespace CRMercury.Data.Repositories
 {

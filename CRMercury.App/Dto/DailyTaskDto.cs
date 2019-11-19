@@ -3,7 +3,7 @@ using System;
 namespace CRMercury.App.Dto
 {
 
-    public class TaskDto
+    public class DailyTaskDto
     {
         public int id { get; set; }
 
@@ -16,7 +16,7 @@ namespace CRMercury.App.Dto
  
         public string description { get; set; }
        
-        public State state { get; set; }
+        public int state { get; set; }
         
         public bool status { get; set; }
     }
