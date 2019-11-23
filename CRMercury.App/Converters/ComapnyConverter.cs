@@ -13,13 +13,13 @@ namespace CRMerucry.App.Converters
         {
             Company company = new Company
             {
-                id = companyDto.Id,
-                name = companyDto.Name,
-                ceoname = companyDto.Ceoname,
-                website = companyDto.Website,
-                email = companyDto.Email,
-                phone = companyDto.Phone,
-                status = companyDto.Status,
+                id = companyDto.id,
+                name = companyDto.name,
+                ceoname = companyDto.ceoname,
+                website = companyDto.website,
+                email = companyDto.email,
+                phone = companyDto.phone,
+                status = companyDto.status,
             };
             return company;
         }
@@ -28,13 +28,13 @@ namespace CRMerucry.App.Converters
         {
             CompanyDto companyDto = new CompanyDto
             {
-                Id = company.id,
-                Name = company.name,
-                Ceoname = company.ceoname,
-                Website = company.website,
-                Email = company.email,
-                Phone = company.phone,
-                Status = company.status,
+                id = company.id,
+                name = company.name,
+                ceoname = company.ceoname,
+                website = company.website,
+                email = company.email,
+                phone = company.phone,
+                status = company.status,
             };
             return companyDto;
         }

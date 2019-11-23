@@ -13,3 +13,14 @@ C:\Users\Boss\Documents\CRMercury\CRMercury.Ioc\bin\Release\netcoreapp3.0\CRMerc
 C:\Users\Boss\Documents\CRMercury\CRMercury.Ioc\obj\Release\netcoreapp3.0\CRMercury.Ioc.csproj.CopyComplete
 C:\Users\Boss\Documents\CRMercury\CRMercury.Ioc\obj\Release\netcoreapp3.0\CRMercury.Ioc.dll
 C:\Users\Boss\Documents\CRMercury\CRMercury.Ioc\obj\Release\netcoreapp3.0\CRMercury.Ioc.pdb
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\bin\Release\netcoreapp3.0\CRMercury.Ioc.deps.json
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\bin\Release\netcoreapp3.0\CRMercury.Ioc.dll
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\bin\Release\netcoreapp3.0\CRMercury.Ioc.pdb
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\bin\Release\netcoreapp3.0\CRMercury.App.dll
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\bin\Release\netcoreapp3.0\CRMercury.Data.dll
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\bin\Release\netcoreapp3.0\CRMercury.App.pdb
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\bin\Release\netcoreapp3.0\CRMercury.Data.pdb
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\obj\Release\netcoreapp3.0\CRMercury.Ioc.csprojAssemblyReference.cache
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\obj\Release\netcoreapp3.0\CRMercury.Ioc.csproj.CopyComplete
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\obj\Release\netcoreapp3.0\CRMercury.Ioc.dll
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Ioc\obj\Release\netcoreapp3.0\CRMercury.Ioc.pdb

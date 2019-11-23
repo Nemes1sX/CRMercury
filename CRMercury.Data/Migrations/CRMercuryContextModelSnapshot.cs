@@ -93,7 +93,7 @@ namespace CRMercury.Data.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Task");
+                    b.ToTable("DailyTask");
                 });
 
             modelBuilder.Entity("CRMercury.Data.Models.Employee", b =>
@@ -127,13 +127,13 @@ namespace CRMercury.Data.Migrations
             modelBuilder.Entity("CRMercury.Data.Models.DailyTask", b =>
                 {
                     b.HasOne("CRMercury.Data.Models.Company", "Company")
-                        .WithMany("Tasks")
+                        .WithMany("DailyTasks")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CRMercury.Data.Models.Employee", "Employee")
-                        .WithMany("Tasks")
+                        .WithMany("DailyTasks")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

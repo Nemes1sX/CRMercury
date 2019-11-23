@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';  
 import {CompanyService} from '../services/company.service'; 
 import {ErrorHandlerService} from '../services/error-handler.service';
-import {Company} from 'src/models/company'; 
+import {CompanyDto} from 'src/models/companyDto'; 
 @Component({  
   templateUrl: './addcompany.component.html',   
 })  
@@ -37,7 +37,7 @@ export class AddCompanyComponent implements OnInit {
         if (this.id > 0) {
             this.title = 'Edit';
             this._companyService.getCompanyId(this.id)
-              .subscribe((response: Company) => {
+              .subscribe((response: CompanyDto) => {
                 this.companyForm.setValue(response);
               }, error => console.error(error));
               this.errorMessage = this.errorHandler.errorMessage;
@@ -79,4 +79,3 @@ export class AddCompanyComponent implements OnInit {
     get status() {return this.companyForm.get('status'); }
 }
 
-  

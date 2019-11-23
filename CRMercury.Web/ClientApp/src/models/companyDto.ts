@@ -1,4 +1,4 @@
-export class Company {
+export interface CompanyDto {
     id: number;
     name: string;
     ceoname: string;

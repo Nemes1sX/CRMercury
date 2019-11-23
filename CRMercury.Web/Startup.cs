@@ -43,7 +43,7 @@ namespace CRMercury
 
             services.AddDbContext<CRMercuryContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("CRMercury")));
+                    Configuration.GetConnectionString("CRMercuryv2")));
 
                     
 
@@ -109,7 +109,7 @@ namespace CRMercury
 
                 services.AddCors();
 
-           
+            RegisterServices(services);
 
                 services.AddControllers().
            AddNewtonsoftJson(x => 

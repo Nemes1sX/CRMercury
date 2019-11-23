@@ -17,11 +17,11 @@ namespace CRMercury.Data.Repositories
 
         public async Task<IEnumerable<DailyTask>> GetAllTasks()
         {
-            return await _context.Tasks.AsNoTracking().Include(e => e.Employee).Include(c => c.Company).ToListAsync();
+            return await _context.DailyTasks.AsNoTracking().Include(e => e.Employee).Include(c => c.Company).ToListAsync();
         }
         public async Task<DailyTask> FindTask(int id)
         {
-            return await _context.Tasks.SingleOrDefaultAsync(t => t.id == id);
+            return await _context.DailyTasks.SingleOrDefaultAsync(t => t.id == id);
         }
     }
 }

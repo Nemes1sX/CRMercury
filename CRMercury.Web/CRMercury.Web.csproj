@@ -28,6 +28,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
     <PackageReference Include="NodaTime" Version="2.4.7" />
     <PackageReference Include="python" Version="3.7.4" />
+    <PackageReference Include="python2" Version="2.7.17" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
 
   </ItemGroup>

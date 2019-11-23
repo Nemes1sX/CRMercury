@@ -5,12 +5,12 @@ namespace CRMercury.App.Dto
 
     public class CompanyDto
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Ceoname { get; set; }
-        public string Website { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public bool Status { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string ceoname { get; set; }
+        public string website { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
+        public bool status { get; set; }
     }
 }

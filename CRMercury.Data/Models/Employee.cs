@@ -30,7 +30,7 @@ namespace CRMercury.Data.Models
 
         //public Role role {get; set;}
 
-        public ICollection<DailyTask> Tasks { get; set; }
+        public ICollection<DailyTask> DailyTasks { get; set; }
 
 
     }

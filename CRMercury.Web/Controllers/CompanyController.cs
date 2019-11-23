@@ -9,7 +9,7 @@ using CRMercury.App.Converters;
 using CRMercury.App.Services;
 using Microsoft.AspNetCore.Http;
 
-namespace CRMercury.Controllers{
+namespace CRMercury.Web.Controllers{
     [Route("api/[controller]")] 
     [ApiController]
     public class CompanyController : ControllerBase {

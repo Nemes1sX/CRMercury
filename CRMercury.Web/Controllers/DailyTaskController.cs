@@ -7,7 +7,7 @@ using CRMercury.App.Interfaces;
 using CRMercury.App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CRMercury.Controllers{
+namespace CRMercury.Web.Controllers{
     [ApiController]
     [Route("api/[controller]")]
     public class DailyTaskController : ControllerBase {

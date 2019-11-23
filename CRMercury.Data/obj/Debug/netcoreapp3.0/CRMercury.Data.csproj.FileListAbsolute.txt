@@ -15,3 +15,6 @@ C:\Users\Boss\Documents\CRMercury\CRMercury.Data\bin\Debug\netcoreapp3.0\CRMercu
 C:\Users\Boss\Documents\CRMercury\CRMercury.Data\bin\Debug\netcoreapp3.0\CRMercury.Data.pdb
 C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.dll
 C:\Users\Boss\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.pdb
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\bin\Debug\netcoreapp3.0\CRMercury.Data.pdb
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.dll
+C:\Users\N3m3s1s\Documents\CRMercury\CRMercury.Data\obj\Debug\netcoreapp3.0\CRMercury.Data.pdb
