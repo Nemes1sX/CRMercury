@@ -29,7 +29,7 @@
     "core-js": "^2.6.5",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "oidc-client": "^1.6.1",
     "open-iconic": "^1.1.1",
