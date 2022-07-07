@@ -30,7 +30,7 @@
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "oidc-client": "^1.6.1",
     "open-iconic": "^1.1.1",
     "popper.js": "^1.15.0",
